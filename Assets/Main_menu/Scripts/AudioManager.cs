@@ -5,11 +5,11 @@ public class AudioManager : MonoBehaviour
     [Header("-----------Audio Source-----------")]
     [SerializeField] AudioSource bgMusicSource;
     [SerializeField] AudioSource campfireMusicSource;
-    [SerializeField] AudioSource SFXSource;
+    [SerializeField] AudioSource buttonClick;
 
-    [Header("-----------Audio Clip-----------")]
-    public AudioClip buttonSound;
-
-    //TO DO add buttonSound() function
+    public void PlayButtonSound()
+    {
+        buttonClick.Play();
+    }
 
 }

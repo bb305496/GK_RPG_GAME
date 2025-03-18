@@ -150,8 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgMusicSource: {fileID: 532832701}
   campfireMusicSource: {fileID: 955572156}
-  SFXSource: {fileID: 1271722251}
-  buttonSound: {fileID: 0}
+  buttonClick: {fileID: 1271722251}
 --- !u!4 &47973866
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +252,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441137811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47973865}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441137811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,7 +1042,7 @@ GameObject:
   - component: {fileID: 1271722252}
   - component: {fileID: 1271722251}
   m_Layer: 0
-  m_Name: SFX
+  m_Name: ButtonClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,9 +1058,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b6ba5b6c8ee32314f8e2cb64eb02a43b, type: 3}
+  m_Resource: {fileID: 8300000, guid: b6ba5b6c8ee32314f8e2cb64eb02a43b, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1208,14 +1219,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e40268a58e87df49a234f7b89b0cebd, type: 2}
-  m_sharedMaterial: {fileID: -5904670489435039203, guid: 6e40268a58e87df49a234f7b89b0cebd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
+  m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279736052
+    rgba: 4279473399
   m_fontColor: {r: 0.9686275, g: 0.5803922, b: 0.07450981, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1233,8 +1244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
