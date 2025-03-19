@@ -10,7 +10,7 @@ public class ButtonsScript : MonoBehaviour
 
     public void OptionsButtonClick()
     {
-        //TO DO
+        SceneManager.LoadScene(2);
     }
 
     public void ExitButtonClick()
