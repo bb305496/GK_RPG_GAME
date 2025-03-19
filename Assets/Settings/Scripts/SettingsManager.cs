@@ -10,4 +10,14 @@ public class SettingsManager : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(graphicsDropdown.value);
     }
+
+    public void Start()
+    {
+        
+    }
+
+    public void Update()
+    {
+        
+    }
 }
