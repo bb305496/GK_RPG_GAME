@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 168361353}
   - component: {fileID: 168361352}
   m_Layer: 5
-  m_Name: OptionsButton
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
