@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonsScript : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class ButtonsScript : MonoBehaviour
     public void ExitButtonClick()
     {
         StartCoroutine(DelayBeforeExit());
+    }
+
+    public void BackButtonsClick()
+    {
+        StartCoroutine(DelayBeforeSceneChange(0));
     }
  
     private IEnumerator DelayBeforeSceneChange(int sceneInxed)
