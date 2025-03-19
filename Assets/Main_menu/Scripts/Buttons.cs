@@ -18,6 +18,11 @@ public class ButtonsScript : MonoBehaviour
     {
         StartCoroutine(DelayBeforeExit());
     }
+
+    public void BackButtonsClick()
+    {
+        StartCoroutine(DelayBeforeSceneChange(0));
+    }
  
     private IEnumerator DelayBeforeSceneChange(int sceneInxed)
     {

@@ -28,14 +28,4 @@ public class SettingsManager : MonoBehaviour
     {
         mainAudioMixer.SetFloat("SFXVol", SFXVol.value);
     }
-
-    public void Start()
-    {
-        
-    }
-
-    public void Update()
-    {
-        
-    }
 }
