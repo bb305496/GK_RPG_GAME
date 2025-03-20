@@ -7,12 +7,22 @@ public class ButtonsScript : MonoBehaviour
 {
     public void PlayButtonClick()
     {
+        if(AudioManager.instance != null)
+        {
+            Destroy(AudioManager.instance.gameObject);
+        }
+
         StartCoroutine(DelayBeforeSceneChange(1));
     }
 
     public void OptionsButtonClick()
     {
         StartCoroutine(DelayBeforeSceneChange(2));
+    }
+
+    public void CreditsButtonClick()
+    {
+        StartCoroutine(DelayBeforeSceneChange(3));
     }
 
     public void ExitButtonClick()
