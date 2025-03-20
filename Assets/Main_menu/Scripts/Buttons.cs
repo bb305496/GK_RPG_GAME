@@ -20,6 +20,11 @@ public class ButtonsScript : MonoBehaviour
         StartCoroutine(DelayBeforeSceneChange(2));
     }
 
+    public void CreditsButtonClick()
+    {
+        StartCoroutine(DelayBeforeSceneChange(3));
+    }
+
     public void ExitButtonClick()
     {
         StartCoroutine(DelayBeforeExit());
