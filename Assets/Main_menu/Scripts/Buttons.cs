@@ -7,6 +7,11 @@ public class ButtonsScript : MonoBehaviour
 {
     public void PlayButtonClick()
     {
+        if(AudioManager.instance != null)
+        {
+            Destroy(AudioManager.instance.gameObject);
+        }
+
         StartCoroutine(DelayBeforeSceneChange(1));
     }
 
