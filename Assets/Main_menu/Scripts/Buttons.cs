@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonsScript : MonoBehaviour
 {
+
     public void PlayButtonClick()
     {
         if(AudioManager.instance != null)
@@ -46,5 +47,10 @@ public class ButtonsScript : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Debug.Log("Exit");
         Application.Quit();
+    }
+
+    private IEnumerator Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
     }
 }
