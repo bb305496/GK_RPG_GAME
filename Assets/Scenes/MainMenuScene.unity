@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145297e51e162bd4b9543c182565b830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 0}
 --- !u!4 &795832369
 Transform:
   m_ObjectHideFlags: 0
@@ -1345,6 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145297e51e162bd4b9543c182565b830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionAnim: {fileID: 0}
 --- !u!1 &868021166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2334,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 795832369}
   - {fileID: 519420032}
-  - {fileID: 816403216}
   - {fileID: 868021169}
+  - {fileID: 816403216}
   - {fileID: 47973866}
   - {fileID: 284495659}
