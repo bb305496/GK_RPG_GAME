@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
 
     public TMP_Text healthText;
+    public Animator healthTextAnim;
+    public Animator healthFillAnim;
+    public Animator healthOutlineAnim;
 
     private UIFill uiFill;
 
@@ -23,6 +26,9 @@ public class PlayerHealth : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         currentHealth += amount;
+        healthTextAnim.Play("HealthText");
+        healthFillAnim.Play("FillHealth");
+        healthOutlineAnim.Play("OutlineHealth");
         UpdateUI();
 
         if (currentHealth > maxHealth)
