@@ -4,48 +4,28 @@ using UnityEngine.UI;
 
 public class UIFill : MonoBehaviour
 {
-    public int maxValue;
     public Image fill;
+    private PlayerHealth playerHealth;
 
     private int currentValue;
 
     private void Start()
     {
-        currentValue = maxValue;
-        fill.fillAmount = 1;
+        playerHealth = FindFirstObjectByType<PlayerHealth>();
+        UpdateFill();
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            Add(10);
-
-        if (Input.GetKeyDown(KeyCode.D))
-            Remove(10);
+        UpdateFill();
     }
 
-
-    public void Add(int value)
+    public void UpdateFill()
     {
-        currentValue += value;
-
-        if (currentValue >= maxValue)
+        if (playerHealth != null)
         {
-            currentValue = maxValue;
+            fill.fillAmount = (float)playerHealth.currentHealth / playerHealth.maxHealth;
         }
-
-        fill.fillAmount = (float)currentValue / maxValue;
     }
 
-    public void Remove(int value) 
-    {
-        currentValue -= value;
-
-        if (currentValue < 0)
-        {
-            currentValue = 0;
-        }
-
-        fill.fillAmount = (float)currentValue / maxValue;
-    }
 }
