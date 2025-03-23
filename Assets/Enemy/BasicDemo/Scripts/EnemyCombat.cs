@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int damage = 1;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        collision.gameObject.GetComponent<PlayerHealth>().changeHealth(-damage);
     }
 }
