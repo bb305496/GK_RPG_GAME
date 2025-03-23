@@ -15,11 +15,6 @@ public class UIFill : MonoBehaviour
         UpdateFill();
     }
 
-    public void Update()
-    {
-        UpdateFill();
-    }
-
     public void UpdateFill()
     {
         if (playerHealth != null)
