@@ -15,7 +15,12 @@ public class PlayerHealth : MonoBehaviour
         healthText.text = currentHealth + "/" + maxHealth;
     }
 
-    public void changeHealth(int amount)
+    public void Update()
+    {
+         UpdateUI();
+    }
+
+    public void ChangeHealth(int amount)
     {
         currentHealth += amount;
         UpdateUI();
@@ -33,8 +38,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void UpdateUI()
-    {
-        healthText.text = currentHealth + "/" + maxHealth;
+    {    
         uiFill.UpdateFill();
+        healthText.text = currentHealth + "/" + maxHealth;
     }
 }
