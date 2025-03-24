@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public Transform player;
+    private Transform player;
 
     public float speed = 1f;
     private bool isChasing;
@@ -26,7 +26,12 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            isChasing = true;
+            if (player == null)
+            {
+                player = collision.transform;
+            }
+                isChasing = true;
+            
         }
     }
 
@@ -34,6 +39,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            rb.linearVelocity = Vector2.zero;
             isChasing = false;
         }
     }
