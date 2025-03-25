@@ -6,7 +6,7 @@ public class PrologSceneChange : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(DelayBeforeSceneChange(82f, 4));
+        StartCoroutine(DelayBeforeSceneChange(81f, 4));
     }
 
     private void Update()
