@@ -28,13 +28,18 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (enemyState == EnemyState.Attacking)
         {
-
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
     public void Chase()
     {
-        if (player.position.x > transform.position.x && facingDirection == -1 ||
+        if (Vector2.Distance(transform.position, player.transform.position) <= attackRange)
+        {
+            ChangeState(EnemyState.Attacking);
+        }
+
+        else if (player.position.x > transform.position.x && facingDirection == -1 ||
             player.position.x < transform.position.x && facingDirection == 1)
         {
             Flip();
