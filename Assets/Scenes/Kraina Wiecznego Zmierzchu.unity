@@ -7498,7 +7498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   attackPoint: {fileID: 1388917112}
-  weaponRange: 1
+  weaponRange: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -7519,7 +7519,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackRange: 1.5
+  attackRange: 2
   attackCooldown: 1
   attackCooldownTimer: 1
   speed: 3

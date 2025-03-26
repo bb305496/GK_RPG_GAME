@@ -114,6 +114,9 @@ public class EnemyMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(detectionPoint.position, attackRange);
     }
 }
 
