@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class PrologSceneChange : MonoBehaviour
 {
+    public float videoTime = 81f;
     void Start()
     {
-        StartCoroutine(DelayBeforeSceneChange(81f, 4));
+        StartCoroutine(DelayBeforeSceneChange(videoTime, 4));
     }
 
     private void Update()
