@@ -16,4 +16,10 @@ public class EnemyCombat : MonoBehaviour
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(attackPoint.position, weaponRange);
+    }
 }
