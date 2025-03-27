@@ -8,26 +8,38 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
 
+    private bool isKnockedBack;
+
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        if(horizontal > 0 && transform.localScale.x < 0 ||
-           horizontal < 0 && transform.localScale.x > 0)
+        if (isKnockedBack == false)
         {
-            Flip();
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            if (horizontal > 0 && transform.localScale.x < 0 ||
+               horizontal < 0 && transform.localScale.x > 0)
+            {
+                Flip();
+            }
+
+            anim.SetFloat("horizontal", Mathf.Abs(horizontal));
+            anim.SetFloat("vertical", Mathf.Abs(vertical));
+
+            rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
         }
-
-        anim.SetFloat("horizontal", Mathf.Abs(horizontal));
-        anim.SetFloat("vertical", Mathf.Abs(vertical));
-
-        rb.linearVelocity = new Vector2 (horizontal, vertical) * speed;
     }
 
     public void Flip()
     {
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    }
+
+    public void Knockback(Transform enemy)
+    {
+        isKnockedBack = true;
+        Vector2 direction = transform.position - enemy.position;
+        rb.linearVelocity = direction;
     }
 }
