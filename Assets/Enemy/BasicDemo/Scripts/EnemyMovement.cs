@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform detectionPoint;
     public LayerMask playerLayer;
 
+    public float weight = 1f;
     public float attackRange = 2f;
     public float attackCooldown = 2f;
     public float attackCooldownTimer;
