@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        currentHealth = maxHealth;
         uiFill = FindFirstObjectByType<UIFill>();
         healthText.text = currentHealth + "/" + maxHealth;
     }

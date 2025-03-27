@@ -5921,6 +5921,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &989831199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989831200}
+  m_Layer: 3
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &989831200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989831199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.243, y: 0.062, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1007220100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007220096
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,6 +5967,7 @@ GameObject:
   - component: {fileID: 1007220101}
   - component: {fileID: 1007220102}
   - component: {fileID: 1007220103}
+  - component: {fileID: 1007220104}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -6076,6 +6108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 697885016}
+  - {fileID: 989831200}
   m_Father: {fileID: 1621964500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1007220101
@@ -6090,10 +6123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598aa277be2078e49958d3198370f1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
   facingDirection: 1
   rb: {fileID: 1007220097}
   anim: {fileID: 1007220102}
+  playerCombat: {fileID: 1007220104}
 --- !u!95 &1007220102
 Animator:
   serializedVersion: 7
@@ -6128,12 +6162,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1896649631b48dc4faaf98fd0b047835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 10
+  currentHealth: 0
   maxHealth: 10
   healthText: {fileID: 2121447559}
   healthTextAnim: {fileID: 2121447561}
   healthFillAnim: {fileID: 946523866}
   healthOutlineAnim: {fileID: 185848141}
+--- !u!114 &1007220104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007220096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e50523553b5c8740bf25191f556dd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 989831200}
+  weaponRange: 1
+  knockbackForce: 5
+  knockbackTime: 0.15
+  stunTime: 0.3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  damage: 1
+  anim: {fileID: 1007220102}
+  attack1Cooldown: 1
 --- !u!1 &1252199248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,7 +7398,9 @@ GameObject:
   - component: {fileID: 2118510810}
   - component: {fileID: 2118510811}
   - component: {fileID: 2118510812}
-  m_Layer: 0
+  - component: {fileID: 2118510813}
+  - component: {fileID: 2118510814}
+  m_Layer: 6
   m_Name: BasicDemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7500,7 +7559,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1388917112}
   weaponRange: 1.5
   knockbackForce: 5
-  stunTime: 0.2
+  stunTime: 0.3
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -7547,6 +7606,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2118510813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118510805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad5abfb457c1754cb6507f8b946414f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 5
+--- !u!114 &2118510814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118510805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45054c5e969dd540ad0b87c61569fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2121447557
 GameObject:
   m_ObjectHideFlags: 0
