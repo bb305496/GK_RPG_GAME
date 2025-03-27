@@ -7819,7 +7819,7 @@ MonoBehaviour:
   slider: {fileID: 219839816}
   low: {r: 1, g: 0, b: 0, a: 1}
   high: {r: 0.07006645, g: 1, b: 0, a: 0}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2012655843
 GameObject:
   m_ObjectHideFlags: 0
