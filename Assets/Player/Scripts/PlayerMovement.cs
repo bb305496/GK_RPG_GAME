@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
         {
             playerCombat.Attack1();
         }
+
+        else if(Input.GetButtonDown("Attack2"))
+        {
+            playerCombat.Attack2();
+        }
     }
     void FixedUpdate()
     {

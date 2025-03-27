@@ -13,10 +13,14 @@ public class EnemyKnockback : MonoBehaviour
     }
     public void Knockback(Transform playerTransform, float knockbackForce, float knockbackTime, float stunTime)
     {
+        float finalKnockbackForce = knockbackForce / enemyMovement.weight;
+        float finalknockbackTime = knockbackTime / enemyMovement.weight;
+        float finalstunTime = stunTime / enemyMovement.weight;
+
         enemyMovement.ChangeState(EnemyState.TakingDamage);
-        StartCoroutine(StunTimer(knockbackTime, stunTime));
+        StartCoroutine(StunTimer(finalknockbackTime, finalstunTime));
         Vector2 direction = (transform.position - playerTransform.position).normalized;
-        rb.linearVelocity = direction * knockbackForce;
+        rb.linearVelocity = direction * finalKnockbackForce;
     }
 
     IEnumerator StunTimer(float knockbackTime, float stunTime)
