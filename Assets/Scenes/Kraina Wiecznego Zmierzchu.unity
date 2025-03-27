@@ -6787,9 +6787,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
+      propertyPath: maxEnemies
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 2807792569269836217, guid: 30e5ff32028d03d4481ee551d44c13fe, type: 3}
+    - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
+      propertyPath: maxSpawnTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9116767187508631426, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: m_Name
       value: EnemySpawnerBasicDemon

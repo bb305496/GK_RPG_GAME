@@ -29,6 +29,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
                 currentNumberOfEnemies += 1;
+
+            enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
+
                 SetTimeUntilSpawn();
             }
         
@@ -39,6 +42,11 @@ public class EnemySpawner : MonoBehaviour
     private void SetTimeUntilSpawn()
     {
         timeUntilSpawn = Random.Range(minSpawnTime, maxSpawnTime);
+    }
+
+    private void HandleEnemyDestroyed()
+    {
+        currentNumberOfEnemies -= 1;
     }
 
     //Just to see spawner position

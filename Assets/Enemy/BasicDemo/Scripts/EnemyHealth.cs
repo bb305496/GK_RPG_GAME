@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -5,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public EnemyHealtbarBehaviour healthbar;
+
+    public event Action OnEnemyDestroyed;
 
     private void Start()
     {
@@ -25,5 +28,10 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnEnemyDestroyed.Invoke();
     }
 }
