@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 1f;
     public int facingDirection = 1;
     public Rigidbody2D rb;
     public Animator anim;
@@ -36,10 +37,18 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
-    public void Knockback(Transform enemy, float knockbackForce)
+    public void Knockback(Transform enemy, float knockbackForce, float stunTime)
     {
         isKnockedBack = true;
         Vector2 direction = (transform.position - enemy.position).normalized;
         rb.linearVelocity = direction * knockbackForce;
+        StartCoroutine(KnockbackTime(stunTime));
+    }
+
+    IEnumerator KnockbackTime(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.linearVelocity = Vector2.zero;
+        isKnockedBack = false;
     }
 }

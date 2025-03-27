@@ -6128,8 +6128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1896649631b48dc4faaf98fd0b047835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 3
-  maxHealth: 3
+  currentHealth: 10
+  maxHealth: 10
   healthText: {fileID: 2121447559}
   healthTextAnim: {fileID: 2121447561}
   healthFillAnim: {fileID: 946523866}
@@ -7500,6 +7500,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1388917112}
   weaponRange: 1.5
   knockbackForce: 10
+  stunTime: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
