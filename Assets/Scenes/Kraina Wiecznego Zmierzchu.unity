@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598aa277be2078e49958d3198370f1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
   facingDirection: 1
   rb: {fileID: 1007220097}
   anim: {fileID: 1007220102}
@@ -7500,7 +7500,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1388917112}
   weaponRange: 1.5
   knockbackForce: 5
-  stunTime: 0.2
+  stunTime: 0.3
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
