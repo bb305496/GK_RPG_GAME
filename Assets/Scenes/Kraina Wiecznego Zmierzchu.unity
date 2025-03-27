@@ -5936,6 +5936,7 @@ GameObject:
   - component: {fileID: 1007220101}
   - component: {fileID: 1007220102}
   - component: {fileID: 1007220103}
+  - component: {fileID: 1007220104}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -6094,6 +6095,7 @@ MonoBehaviour:
   facingDirection: 1
   rb: {fileID: 1007220097}
   anim: {fileID: 1007220102}
+  playerCombat: {fileID: 1007220104}
 --- !u!95 &1007220102
 Animator:
   serializedVersion: 7
@@ -6134,6 +6136,19 @@ MonoBehaviour:
   healthTextAnim: {fileID: 2121447561}
   healthFillAnim: {fileID: 946523866}
   healthOutlineAnim: {fileID: 185848141}
+--- !u!114 &1007220104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007220096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e50523553b5c8740bf25191f556dd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1007220102}
 --- !u!1 &1252199248
 GameObject:
   m_ObjectHideFlags: 0
