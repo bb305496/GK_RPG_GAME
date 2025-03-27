@@ -36,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
-    public void Knockback(Transform enemy)
+    public void Knockback(Transform enemy, float knockbackForce)
     {
         isKnockedBack = true;
-        Vector2 direction = transform.position - enemy.position;
-        rb.linearVelocity = direction;
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        rb.linearVelocity = direction * knockbackForce;
     }
 }

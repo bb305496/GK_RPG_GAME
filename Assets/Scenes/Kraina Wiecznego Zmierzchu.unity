@@ -6004,8 +6004,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.022165492, y: -0.03885889}
-  m_Size: {x: 0.3607274, y: 0.7940724}
+  m_Offset: {x: 0.07494271, y: 0.0017520785}
+  m_Size: {x: 0.31555295, y: 0.57605565}
   m_Direction: 0
 --- !u!212 &1007220099
 SpriteRenderer:
@@ -6051,12 +6051,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -6776007161802925652, guid: 00aad825454a39b4a976af2d2904c0d0, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 7d489174494d260458598b7b52f1ee41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.57, y: 0.61}
+  m_Size: {x: 2.8125, y: 2.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7499,6 +7499,7 @@ MonoBehaviour:
   damage: 1
   attackPoint: {fileID: 1388917112}
   weaponRange: 1.5
+  knockbackForce: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
