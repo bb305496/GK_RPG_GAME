@@ -4,7 +4,9 @@ public class EnemyCombat : MonoBehaviour
 {
     public int damage = 1;
     public Transform attackPoint;
-    public float weaponRange;
+    public float weaponRange = 1f;
+    public float knockbackForce = 1f;
+    public float stunTime = 1f;
     public LayerMask playerLayer;
 
     public void Attack()
@@ -14,6 +16,7 @@ public class EnemyCombat : MonoBehaviour
         if(hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            hits[0].GetComponent<PlayerMovement>().Knockback(transform, knockbackForce, stunTime);
         }
     }
 
