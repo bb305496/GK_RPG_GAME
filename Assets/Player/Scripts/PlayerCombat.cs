@@ -28,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if(attack1CooldownTimer <= 0)
         {
-            anim.SetBool("isAttacking", true);
+            anim.SetBool("isAttacking1", true);
             attack1CooldownTimer = attack1Cooldown;
         }
     }
@@ -46,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void FinishAttacking1()
     {
-        anim.SetBool("isAttacking", false);
+        anim.SetBool("isAttacking1", false);
     }
 
     private void OnDrawGizmosSelected()
