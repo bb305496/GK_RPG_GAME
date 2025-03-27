@@ -27,19 +27,22 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        CheckForPlayer();
+        if (enemyState != EnemyState.TakingDamage)
+        {
+            CheckForPlayer();
 
-        if (attackCooldownTimer > 0)
-        {
-            attackCooldownTimer -= Time.deltaTime;
-        }
-        if (enemyState == EnemyState.Chasing)
-        {
-            Chase();
-        }
-        else if (enemyState == EnemyState.Attacking)
-        {
-            rb.linearVelocity = Vector2.zero;
+            if (attackCooldownTimer > 0)
+            {
+                attackCooldownTimer -= Time.deltaTime;
+            }
+            if (enemyState == EnemyState.Chasing)
+            {
+                Chase();
+            }
+            else if (enemyState == EnemyState.Attacking)
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
     }
 
@@ -88,7 +91,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         //Exit current animation
         if (enemyState == EnemyState.Idle)
@@ -97,6 +100,8 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isMoving", false);
         else if (enemyState == EnemyState.Attacking)
             anim.SetBool("isAttacking", false);
+        else if (enemyState == EnemyState.TakingDamage)
+            anim.SetBool("isTakingDamage", false);
 
         //Update our current state
         enemyState = newState;
@@ -108,6 +113,9 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isMoving", true);
         else if (enemyState == EnemyState.Attacking)
             anim.SetBool("isAttacking", true);
+        else if (enemyState == EnemyState.TakingDamage)
+            anim.SetBool("isTakingDamage", true);
+
     }
 
     private void OnDrawGizmosSelected()
@@ -124,5 +132,6 @@ public enum EnemyState
 {
     Idle,
     Chasing,
-    Attacking
+    Attacking,
+    TakingDamage
 }
