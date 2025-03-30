@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public PlayerCombat playerCombat;
+    public StatsUI stastUI;
 
     private bool isKnockedBack;
 

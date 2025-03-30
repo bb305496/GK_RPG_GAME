@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator healthTextAnim;
     public Animator healthFillAnim;
     public Animator healthOutlineAnim;
+    public StatsUI stastUI;
 
     private UIFill uiFill;
 

@@ -19,12 +19,14 @@ public class StatsUI : MonoBehaviour
             if (statsOpen)
             {
                 Time.timeScale = 1;
+                UpdateAllStats();
                 statsCanvas.alpha = 0;
                 statsOpen = false;
             }
             else
             {
                 Time.timeScale = 0;
+                UpdateAllStats();
                 statsCanvas.alpha = 1;
                 statsOpen = true;
             }
@@ -34,6 +36,7 @@ public class StatsUI : MonoBehaviour
     {
         UpdateHP();
         UpdateATK();
+        UpdateZWI();
     }
     public void UpdateHP()
     {
@@ -45,5 +48,8 @@ public class StatsUI : MonoBehaviour
         statsSlots[1].GetComponentInChildren<TMP_Text>().text = "ATK " + StatsManager.Instance.damage;
     }
 
-
+    public void UpdateZWI()
+    {
+        statsSlots[2].GetComponentInChildren<TMP_Text>().text = "ZWI " + StatsManager.Instance.speed;
+    }
 }

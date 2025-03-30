@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint2;
     public LayerMask enemyLayer;
     public float weaponRange = 1f;
+    public StatsUI stastUI;
 
     public Animator anim;
     public float attack1Cooldown = 1f;
