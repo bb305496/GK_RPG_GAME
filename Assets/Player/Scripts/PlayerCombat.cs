@@ -5,6 +5,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint1;
     public Transform attackPoint2;
     public LayerMask enemyLayer;
+    public float weaponRange = 1f;
 
     public Animator anim;
     public float attack1Cooldown = 1f;
@@ -78,11 +79,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        //Gizmos.color = Color.blue;
-        //Gizmos.DrawWireSphere(attackPoint1.position, StatsManager.Instance.weaponRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint1.position, weaponRange);
 
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(attackPoint2.position, StatsManager.Instance.weaponRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint2.position, weaponRange);
 
     }
 }
