@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
                 currentNumberOfEnemies += 1;
 
-            enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
+                enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
 
                 SetTimeUntilSpawn();
             }
