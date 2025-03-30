@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -15,18 +16,71 @@ public class PlayerCombat : MonoBehaviour
     public float attack2Cooldown = 2f;
     private float attack2CooldownTimer;
 
+    bool isCooldown1 = false;
+    bool isCooldown2 = false;
+
+    public Image attack1Image;
+    public Image attack2Image;
+
+
+    public void Start()
+    {
+        attack1Image.fillAmount = 0;
+        attack2Image.fillAmount = 0;
+    }
+
     private void Update()
     {
-        if(attack1CooldownTimer > 0)
+        UpdateAttacksTimer();
+
+        UpdatePlayerUI();
+    }
+
+    public void UpdatePlayerUI()
+    {
+        Attack1UI();
+        Attack2UI();
+    }
+
+    public void Attack1UI()
+    {
+        if(anim.GetBool("isAttacking1") && isCooldown1 == false)
         {
-            attack1CooldownTimer -= Time.deltaTime;
+            isCooldown1 = true;
+            attack1Image.fillAmount = 1;
         }
 
-        if (attack2CooldownTimer > 0)
+        if(isCooldown1)
         {
-            attack2CooldownTimer -= Time.deltaTime;
+            attack1Image.fillAmount -= 1 / attack1Cooldown * Time.deltaTime;
+
+            if(attack1Image.fillAmount <= 0)
+            {
+                attack1Image.fillAmount = 0;
+                isCooldown1 = false;
+            }
         }
     }
+    public void Attack2UI()
+    {
+        if (anim.GetBool("isAttacking2") && isCooldown2 == false)
+        {
+            isCooldown2 = true;
+            attack2Image.fillAmount = 1;
+        }
+
+        if (isCooldown2)
+        {
+            attack2Image.fillAmount -= 1 / attack2Cooldown * Time.deltaTime;
+
+            if (attack2Image.fillAmount <= 0)
+            {
+                attack2Image.fillAmount = 0;
+                isCooldown2 = false;
+            }
+        }
+    }
+
 
     public void Attack1()
     {
@@ -46,6 +100,18 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    public void UpdateAttacksTimer()
+    {
+        if (attack1CooldownTimer > 0)
+        {
+            attack1CooldownTimer -= Time.deltaTime;
+        }
+
+        if (attack2CooldownTimer > 0)
+        {
+            attack2CooldownTimer -= Time.deltaTime;
+        }
+    }
     public void DealDamageAttack1()
     {
         Collider2D[] enemis = Physics2D.OverlapCircleAll(attackPoint1.position, StatsManager.Instance.weaponRange, enemyLayer);
