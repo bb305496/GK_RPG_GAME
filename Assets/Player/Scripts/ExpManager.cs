@@ -41,7 +41,7 @@ public class ExpManager : MonoBehaviour
     private void LevelUp()
     {
         level++;
-        currentExp = 0;
+        currentExp -= expToLevel;
         expToLevel = Mathf.RoundToInt(expToLevel * 1.2f);
     }
 
