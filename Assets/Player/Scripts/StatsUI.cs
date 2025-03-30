@@ -6,6 +6,8 @@ public class StatsUI : MonoBehaviour
     public GameObject[] statsSlots;
     public CanvasGroup statsCanvas;
 
+    private bool statsOpen = false;
+
     public void Start()
     {
         UpdateAllStats();
@@ -13,10 +15,17 @@ public class StatsUI : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetButtonDown("ToggleStats"))
-        {
-            statsCanvas.alpha = 0;
-        }
+        if (Input.GetButtonDown("ToggleStats"))
+            if (statsOpen)
+            {
+                statsCanvas.alpha = 0;
+                statsOpen = false;
+            }
+            else
+            {
+                statsCanvas.alpha = 1;
+                statsOpen = true;
+            }
     }
 
     public void UpdateAllStats()
