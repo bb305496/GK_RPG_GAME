@@ -2,21 +2,20 @@ using UnityEngine;
 using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
-    public int currentHealth;
-    public int maxHealth;
 
     public TMP_Text healthText;
     public Animator healthTextAnim;
     public Animator healthFillAnim;
     public Animator healthOutlineAnim;
+    public StatsUI stastUI;
 
     private UIFill uiFill;
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth;
         uiFill = FindFirstObjectByType<UIFill>();
-        healthText.text = currentHealth + "/" + maxHealth;
+        healthText.text = StatsManager.Instance.currentHealth + "/" + StatsManager.Instance.maxHealth;
     }
 
     public void Update()
@@ -26,20 +25,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        currentHealth += amount;
+        StatsManager.Instance.currentHealth += amount;
         healthTextAnim.Play("HealthText");
         healthFillAnim.Play("FillHealth");
         healthOutlineAnim.Play("OutlineHealth");
         UpdateUI();
 
-        if (currentHealth > maxHealth)
-        {   
-            currentHealth = maxHealth;
+        if (StatsManager.Instance.currentHealth > StatsManager.Instance.maxHealth)
+        {
+            StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth;
         }
 
-        if (currentHealth <= 0)
+        if (StatsManager.Instance.currentHealth <= 0)
         {
-            currentHealth = 0;
+            StatsManager.Instance.currentHealth = 0;
             gameObject.SetActive(false);
         }
     }
@@ -47,6 +46,6 @@ public class PlayerHealth : MonoBehaviour
     private void UpdateUI()
     {    
         uiFill.UpdateFill();
-        healthText.text = currentHealth + "/" + maxHealth;
+        healthText.text = StatsManager.Instance.currentHealth + "/" + StatsManager.Instance.maxHealth;
     }
 }

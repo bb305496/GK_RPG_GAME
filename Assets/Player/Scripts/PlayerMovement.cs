@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1f;
     public int facingDirection = 1;
     public Rigidbody2D rb;
     public Animator anim;
     public PlayerCombat playerCombat;
+    public StatsUI stastUI;
 
     private bool isKnockedBack;
 
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("horizontal", Mathf.Abs(horizontal));
             anim.SetFloat("vertical", Mathf.Abs(vertical));
 
-            rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
+            rb.linearVelocity = new Vector2(horizontal, vertical) * StatsManager.Instance.speed;
         }
     }
 

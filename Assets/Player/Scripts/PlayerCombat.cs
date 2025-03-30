@@ -4,14 +4,9 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint1;
     public Transform attackPoint2;
-    public float weaponRange = 1f;
-    public float knockbackForce = 5;
-    public float knockbackTime = 0.15f;
-    public float stunTime = 0.3f;
     public LayerMask enemyLayer;
-    public int damage = 1;
-
-
+    public float weaponRange = 1f;
+    public StatsUI stastUI;
 
     public Animator anim;
     public float attack1Cooldown = 1f;
@@ -53,23 +48,23 @@ public class PlayerCombat : MonoBehaviour
 
     public void DealDamageAttack1()
     {
-        Collider2D[] enemis = Physics2D.OverlapCircleAll(attackPoint1.position, weaponRange, enemyLayer);
+        Collider2D[] enemis = Physics2D.OverlapCircleAll(attackPoint1.position, StatsManager.Instance.weaponRange, enemyLayer);
 
         if (enemis.Length > 0)
         {
-            enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-damage);
-            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime);
+            enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-StatsManager.Instance.damage);
+            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime);
         }
     }
 
     public void DealDamageAttack2()
     {
-        Collider2D[] enemis = Physics2D.OverlapCircleAll(attackPoint2.position, weaponRange, enemyLayer);
+        Collider2D[] enemis = Physics2D.OverlapCircleAll(attackPoint2.position, StatsManager.Instance.weaponRange, enemyLayer);
 
         if (enemis.Length > 0)
         {
-            enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-(2*damage));
-            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, 1.2f*knockbackForce, 1.2f*knockbackTime, 1.2f*stunTime);
+            enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-(2* StatsManager.Instance.damage));
+            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, 1.2f* StatsManager.Instance.knockbackForce, 1.2f* StatsManager.Instance.knockbackTime, 1.2f* StatsManager.Instance.stunTime);
         }
     }
 

@@ -19,7 +19,7 @@ public class UIFill : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            fill.fillAmount = (float)playerHealth.currentHealth / playerHealth.maxHealth;
+            fill.fillAmount = (float)StatsManager.Instance.currentHealth / StatsManager.Instance.maxHealth;
         }
     }
 
