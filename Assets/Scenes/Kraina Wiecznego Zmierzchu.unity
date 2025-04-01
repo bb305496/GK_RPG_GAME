@@ -1951,7 +1951,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 533151132}
   m_HandleRect: {fileID: 0}
@@ -7046,6 +7046,7 @@ GameObject:
   - component: {fileID: 900247475}
   - component: {fileID: 900247476}
   - component: {fileID: 900247477}
+  - component: {fileID: 900247478}
   m_Layer: 5
   m_Name: SkillsUI
   m_TagString: Untagged
@@ -7144,9 +7145,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900247470}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &900247476
 MonoBehaviour:
@@ -7178,6 +7179,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20fde5db223aea49bed41be3210b804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &900247478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900247470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31625ccf24f58b148b283ae9ea991abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsCanvas: {fileID: 900247475}
 --- !u!1 &1101754704
 GameObject:
   m_ObjectHideFlags: 0

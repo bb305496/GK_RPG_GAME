@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Attack1"))
+        if(Input.GetButtonDown("Attack1") && playerCombat.enabled == true)
         {
             playerCombat.Attack1();
         }
 
-        else if(Input.GetButtonDown("Attack2"))
+        else if(Input.GetButtonDown("Attack2") && playerCombat.enabled == true)
         {
             playerCombat.Attack2();
         }
