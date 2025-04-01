@@ -119,7 +119,7 @@ public class PlayerCombat : MonoBehaviour
         if (enemis.Length > 0)
         {
             enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-StatsManager.Instance.damage);
-            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime);
+            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime);       
         }
     }
 
@@ -129,8 +129,11 @@ public class PlayerCombat : MonoBehaviour
 
         if (enemis.Length > 0)
         {
-            enemis[0].GetComponent<EnemyHealth>().ChangeHealth(-(2* StatsManager.Instance.damage));
-            enemis[0].GetComponent<EnemyKnockback>().Knockback(transform, 1.2f* StatsManager.Instance.knockbackForce, 1.2f* StatsManager.Instance.knockbackTime, 1.2f* StatsManager.Instance.stunTime);
+            foreach (var enemy in enemis)
+            {
+                enemy.GetComponent<EnemyHealth>().ChangeHealth(-(2 * StatsManager.Instance.damage));
+                enemy.GetComponent<EnemyKnockback>().Knockback(transform, 1.2f * StatsManager.Instance.knockbackForce, 1.2f * StatsManager.Instance.knockbackTime, 1.2f * StatsManager.Instance.stunTime);
+            }
         }
     }
 

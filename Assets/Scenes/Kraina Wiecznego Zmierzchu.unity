@@ -8737,8 +8737,8 @@ MonoBehaviour:
   weaponRange: 1
   stastUI: {fileID: 1719015617}
   anim: {fileID: 5631016304719706722}
-  attack1Cooldown: 3
-  attack2Cooldown: 5
+  attack1Cooldown: 1
+  attack2Cooldown: 2
   attack1Image: {fileID: 1345864386}
   attack2Image: {fileID: 2104609637}
 --- !u!212 &615094913053813800
