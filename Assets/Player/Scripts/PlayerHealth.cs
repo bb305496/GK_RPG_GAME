@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public TMP_Text healthText;
     public Animator healthTextAnim;
     public Animator healthFillAnim;
-    public Animator healthOutlineAnim;
+    //public Animator healthOutlineAnim;
     public StatsUI stastUI;
 
     private UIFill uiFill;
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         StatsManager.Instance.currentHealth += amount;
         healthTextAnim.Play("HealthText");
         healthFillAnim.Play("FillHealth");
-        healthOutlineAnim.Play("OutlineHealth");
+        //healthOutlineAnim.Play("OutlineHealth");
         UpdateUI();
 
         if (StatsManager.Instance.currentHealth > StatsManager.Instance.maxHealth)
