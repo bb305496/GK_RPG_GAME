@@ -35,6 +35,7 @@ public class StatsManager : MonoBehaviour
     public void UpdateMaxHealth(int amount)
     {
         maxHealth += amount;
+        currentHealth += amount;
         healthText.text = currentHealth + "/" + maxHealth;
     }
 }
