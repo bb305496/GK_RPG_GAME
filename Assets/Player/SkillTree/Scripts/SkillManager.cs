@@ -23,6 +23,10 @@ public class SkillManager : MonoBehaviour
                 StatsManager.Instance.UpdateMaxHealth(1);
                 break;
 
+            case "Add Max Dmg":
+                StatsManager.Instance.UpdateMaxDmg(1);
+                break;
+
             default:
                 Debug.LogWarning("Skill not found" + skillName);
                 break;

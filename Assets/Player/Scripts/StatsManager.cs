@@ -38,4 +38,9 @@ public class StatsManager : MonoBehaviour
         currentHealth += amount;
         healthText.text = currentHealth + "/" + maxHealth;
     }
+
+    public void UpdateMaxDmg(int amount)
+    {
+        damage += amount;
+    }
 }
