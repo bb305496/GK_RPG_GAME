@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class StatsManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class StatsManager : MonoBehaviour
     [Header("Health Stats")]
     public int maxHealth;
     public int currentHealth;
+    private bool hasPassiveHealing = false;
+    public float healingCooldown = 2f;
+    private float healingTimer;
 
     private void Awake()
     {
@@ -32,10 +36,22 @@ public class StatsManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        healingTimer = healingCooldown;
+    }
+
+    private void Update()
+    {
+        if(hasPassiveHealing)
+        {
+            PassiveHealing(1);
+        }
+    }
     public void UpdateMaxHealth(int amount)
     {
         maxHealth += amount;
-        currentHealth += amount;
+        currentHealth = maxHealth;
         healthText.text = currentHealth + "/" + maxHealth;
     }
 
@@ -43,4 +59,26 @@ public class StatsManager : MonoBehaviour
     {
         damage += amount;
     }
+
+
+    public void EnablePassiveHealing()
+    {
+        hasPassiveHealing = true;
+    }
+
+    public void PassiveHealing(int amount)
+    {
+        healingTimer -= Time.deltaTime;
+        if (healingTimer <= 0)
+        {
+            currentHealth += amount;
+            if(currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+            healingTimer = healingCooldown;
+        }
+
+    }
+
 }

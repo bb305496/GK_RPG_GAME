@@ -11,6 +11,7 @@ public class ExpManager : MonoBehaviour
     public int expToLevel = 10;
     public Slider expSlider;
     public TMP_Text levelText;
+    public StatsManager statsManager;
 
     public static event Action<int> OnLevelUp;
 
@@ -46,6 +47,9 @@ public class ExpManager : MonoBehaviour
         currentExp -= expToLevel;
         expToLevel = Mathf.RoundToInt(expToLevel * 1.2f);
         OnLevelUp?.Invoke(1);
+        statsManager.damage += 1;
+        statsManager.maxHealth += 1;
+        statsManager.currentHealth += 1;
     }
 
     public void UpdateUI()

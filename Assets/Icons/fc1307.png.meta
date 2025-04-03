@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ce638775e4a57e24e943b230daf06e25
+guid: 1549576caaeab094bbd5af39f7ad505b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6374392153372420311
-    second: ui-background_0
+      213: -1840237867795088516
+    second: fc1307_0
+  - first:
+      213: 7110750526397109510
+    second: fc1307_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui-background_0
+      name: fc1307_0
       rect:
         serializedVersion: 2
-        x: 196
-        y: 154
-        width: 190
-        height: 206
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92713370c1c9987a0800000000000000
-      internalID: -6374392153372420311
+      spriteID: c7bf9d3c8692676e0800000000000000
+      internalID: -1840237867795088516
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7817b66f87b6d9147b0a59476d45d21d
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui-background_0: -6374392153372420311
+      fc1307_0: -1840237867795088516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
