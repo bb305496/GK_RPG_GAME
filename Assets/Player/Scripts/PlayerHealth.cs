@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Diagnostics;
 public class PlayerHealth : MonoBehaviour
 {
 
@@ -9,12 +10,18 @@ public class PlayerHealth : MonoBehaviour
     //public Animator healthOutlineAnim;
     public StatsUI stastUI;
 
+    private ChasingWarningUI chasingWarning;
+
+
     private UIFill uiFill;
 
     private void Start()
     {
         StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth;
         uiFill = FindFirstObjectByType<UIFill>();
+
+        chasingWarning = FindFirstObjectByType<ChasingWarningUI>();
+
         healthText.text = StatsManager.Instance.currentHealth + "/" + StatsManager.Instance.maxHealth;
     }
 
@@ -25,6 +32,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        // Stop heal while chasing
+        if (amount > 0 && chasingWarning != null && chasingWarning.IsBeingChased())
+        {
+            return;
+        }
+
         StatsManager.Instance.currentHealth += amount;
         healthTextAnim.Play("HealthText");
         healthFillAnim.Play("FillHealth");

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.XR;
@@ -18,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
     public float attackCooldownTimer;
     private int facingDirection = 1;
     public float speed = 1f;
+
+    public EnemyState CurrentState => enemyState;
 
     private void Start()
     {
@@ -49,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Chase()
     {
-
+        
         if (player.position.x > transform.position.x && facingDirection == -1 ||
             player.position.x < transform.position.x && facingDirection == 1)
         {
