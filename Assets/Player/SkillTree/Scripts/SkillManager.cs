@@ -20,7 +20,7 @@ public class SkillManager : MonoBehaviour
         switch(skillName)
         {
             case "Add Max Health":
-                StatsManager.Instance.UpdateMaxHealth(1);
+                StatsManager.Instance.UpdateMaxHealth(10);
                 break;
 
             case "Add Max Dmg":
@@ -29,6 +29,10 @@ public class SkillManager : MonoBehaviour
 
             case "Add New Attack":
                 PlayerCombat.Instance.UnlockAttack2();
+                break;
+
+            case "Add Passive Healing":
+                StatsManager.Instance.UpgradePassiveHealing();
                 break;
 
             default:
