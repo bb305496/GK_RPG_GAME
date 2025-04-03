@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AddPassiveHealing
   m_EditorClassIdentifier: 
   skillName: Add Passive Healing
-  maxLevel: 1
+  maxLevel: 3
   skillIcon: {fileID: -1840237867795088516, guid: 1549576caaeab094bbd5af39f7ad505b, type: 3}

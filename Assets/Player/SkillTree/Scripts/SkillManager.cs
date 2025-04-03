@@ -32,7 +32,7 @@ public class SkillManager : MonoBehaviour
                 break;
 
             case "Add Passive Healing":
-                StatsManager.Instance.EnablePassiveHealing();
+                StatsManager.Instance.UpgradePassiveHealing();
                 break;
 
             default:

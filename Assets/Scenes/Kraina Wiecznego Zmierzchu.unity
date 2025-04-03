@@ -2211,6 +2211,7 @@ MonoBehaviour:
   speed: 4
   maxHealth: 10
   currentHealth: 10
+  healingCooldown: 2
 --- !u!4 &818227351
 Transform:
   m_ObjectHideFlags: 0

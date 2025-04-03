@@ -21,6 +21,7 @@ public class StatsManager : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     private bool hasPassiveHealing = false;
+    private int passiveHealingLevel = 0;
     public float healingCooldown = 2f;
     private float healingTimer;
 
@@ -45,7 +46,7 @@ public class StatsManager : MonoBehaviour
     {
         if(hasPassiveHealing)
         {
-            PassiveHealing(1);
+            PassiveHealing();
         }
     }
     public void UpdateMaxHealth(int amount)
@@ -61,17 +62,19 @@ public class StatsManager : MonoBehaviour
     }
 
 
-    public void EnablePassiveHealing()
+    public void UpgradePassiveHealing()
     {
         hasPassiveHealing = true;
+        passiveHealingLevel++;
     }
 
-    public void PassiveHealing(int amount)
+    public void PassiveHealing()
     {
         healingTimer -= Time.deltaTime;
         if (healingTimer <= 0)
         {
-            currentHealth += amount;
+            int healingAmount = passiveHealingLevel;
+            currentHealth += healingAmount;
             if(currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
