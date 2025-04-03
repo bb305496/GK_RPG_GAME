@@ -256,7 +256,7 @@ MonoBehaviour:
   m_text: '"Music by Michael Barker (juanjo_sound)"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
-  m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a805c7fb0a2634c4e989e39197ba563e, type: 2}
   m_fontSharedMaterials:
   - {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
-  m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a805c7fb0a2634c4e989e39197ba563e, type: 2}
   m_fontSharedMaterials:
   - {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -921,7 +921,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
-  m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a805c7fb0a2634c4e989e39197ba563e, type: 2}
   m_fontSharedMaterials:
   - {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_text: Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
-  m_sharedMaterial: {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a805c7fb0a2634c4e989e39197ba563e, type: 2}
   m_fontSharedMaterials:
   - {fileID: -4454606012332017435, guid: 88ea699c8343fa845a8a1ba7f00280bc, type: 2}
   m_fontMaterial: {fileID: 0}
