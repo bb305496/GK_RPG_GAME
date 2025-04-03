@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public static PlayerCombat Instance;
+
     public Transform attackPoint1;
     public Transform attackPoint2;
     public LayerMask enemyLayer;
@@ -10,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public StatsUI stastUI;
 
     public Animator anim;
+    private bool isAttack2Unlocked = false;
     public float attack1Cooldown = 1f;
     private float attack1CooldownTimer;
 
@@ -19,20 +22,31 @@ public class PlayerCombat : MonoBehaviour
     bool isCooldown1 = false;
     bool isCooldown2 = false;
 
-    public Image attack1Image;
+    public Image attack1ImageBG;
+    public Image attack2ImageBG;
     public Image attack2Image;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Start()
     {
-        attack1Image.fillAmount = 0;
+        attack1ImageBG.fillAmount = 0;
         attack2Image.fillAmount = 0;
     }
 
     private void Update()
     {
         UpdateAttacksTimer();
-
         UpdatePlayerUI();
     }
 
@@ -47,37 +61,46 @@ public class PlayerCombat : MonoBehaviour
         if(anim.GetBool("isAttacking1") && isCooldown1 == false)
         {
             isCooldown1 = true;
-            attack1Image.fillAmount = 1;
+            attack1ImageBG.fillAmount = 1;
         }
 
         if(isCooldown1)
         {
-            attack1Image.fillAmount -= 1 / attack1Cooldown * Time.deltaTime;
+            attack1ImageBG.fillAmount -= 1 / attack1Cooldown * Time.deltaTime;
 
-            if(attack1Image.fillAmount <= 0)
+            if(attack1ImageBG.fillAmount <= 0)
             {
-                attack1Image.fillAmount = 0;
+                attack1ImageBG.fillAmount = 0;
                 isCooldown1 = false;
             }
         }
     }
     public void Attack2UI()
     {
-        if (anim.GetBool("isAttacking2") && isCooldown2 == false)
+        if (isAttack2Unlocked)
         {
-            isCooldown2 = true;
-            attack2Image.fillAmount = 1;
-        }
-
-        if (isCooldown2)
-        {
-            attack2Image.fillAmount -= 1 / attack2Cooldown * Time.deltaTime;
-
-            if (attack2Image.fillAmount <= 0)
+            if (anim.GetBool("isAttacking2") && isCooldown2 == false)
             {
-                attack2Image.fillAmount = 0;
-                isCooldown2 = false;
+                isCooldown2 = true;
+                attack2ImageBG.fillAmount = 1;
             }
+
+            if (isCooldown2)
+            {
+                attack2ImageBG.fillAmount -= 1 / attack2Cooldown * Time.deltaTime;
+
+                if (attack2ImageBG.fillAmount <= 0)
+                {
+                    attack2ImageBG.fillAmount = 0;
+                    isCooldown2 = false;
+                }
+            }
+        }
+        else
+        {
+            attack2ImageBG.fillAmount = 1;
+            attack2ImageBG.gameObject.SetActive(false);
+            attack2Image.gameObject.SetActive(false);
         }
     }
 
@@ -93,10 +116,13 @@ public class PlayerCombat : MonoBehaviour
 
     public void Attack2()
     {
-        if (attack2CooldownTimer <= 0)
-        {
-            anim.SetBool("isAttacking2", true);
-            attack2CooldownTimer = attack2Cooldown;
+        if (isAttack2Unlocked)
+        { 
+            if (attack2CooldownTimer <= 0)
+            {
+                anim.SetBool("isAttacking2", true);
+                attack2CooldownTimer = attack2Cooldown;
+            }
         }
     }
 
@@ -155,5 +181,13 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint2.position, weaponRange);
 
+    }
+
+    public void UnlockAttack2()
+    {
+        isAttack2Unlocked = true;
+        attack2ImageBG.fillAmount = 0;
+        attack2ImageBG.gameObject.SetActive(true);
+        attack2Image.gameObject.SetActive(true);
     }
 }
