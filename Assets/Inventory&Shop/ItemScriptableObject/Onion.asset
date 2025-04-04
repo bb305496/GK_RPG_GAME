@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
+  m_Name: Onion
+  m_EditorClassIdentifier: 
+  itemName: Onion
+  itemDescription: What is this Polish vegetable!!?
+  icon: {fileID: 20086349235658183, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+  isGold: 0
+  currentHealth: 5
+  maxHealth: 0
+  speed: 0
+  damage: 0
+  duration: 0
