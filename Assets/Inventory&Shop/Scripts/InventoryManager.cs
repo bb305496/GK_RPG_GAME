@@ -4,6 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] itemSlots;
+    public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
 
@@ -46,6 +47,21 @@ public class InventoryManager : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    public void UseItem(InventorySlot slot)
+    {
+        if(slot.itmeSO != null && slot.quantity >=0)
+        {
+            useItem.ApplyItemEffect(slot.itmeSO);
+
+            slot.quantity--;
+            if(slot.quantity <=0)
+            {
+                slot.itmeSO = null;
+            }
+            slot.UpdateUI();
         }
     }
 }

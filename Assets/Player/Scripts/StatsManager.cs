@@ -6,6 +6,7 @@ public class StatsManager : MonoBehaviour
 {
     private ChasingWarningUI chasingWarning;
     public static StatsManager Instance;
+    public StatsUI statsUI;
     public TMP_Text healthText;
 
     [Header("Combat Stats")]
@@ -89,6 +90,14 @@ public class StatsManager : MonoBehaviour
             healingTimer = healingCooldown;
         }
 
+    }
+
+    //#######################################ITEMS########################################
+
+    public void UpdateSpeed(int amount)
+    {
+        speed += amount;
+        statsUI.UpdateAllStats();
     }
 
 }
