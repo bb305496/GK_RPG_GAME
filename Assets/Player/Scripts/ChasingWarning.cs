@@ -7,12 +7,12 @@ using TMPro;
 
 public class ChasingWarningUI : MonoBehaviour
 {
-    public GameObject warningUI; // np. Image z Canvas
+    //public GameObject warningUI; // np. Image z Canvas
     private EnemyMovement[] enemies;
     private float warningTimer = 0f;
     public float warningDuration = 2f;
     public GameObject hpGlowAnimator; // lub Image / CanvasGroup jeœli wolisz inny typ
-
+    public bool isChased = false;
 
 
 
@@ -21,7 +21,7 @@ public class ChasingWarningUI : MonoBehaviour
         enemies = UnityEngine.Object.FindObjectsByType<EnemyMovement>(FindObjectsSortMode.None);
 
         UnityEngine.Debug.Log($"Znaleziono przeciwników: {enemies.Length}");
-        warningUI.SetActive(false);
+        //warningUI.SetActive(false);
     }
 
 
@@ -29,7 +29,6 @@ public class ChasingWarningUI : MonoBehaviour
     {
         enemies = UnityEngine.Object.FindObjectsByType<EnemyMovement>(FindObjectsSortMode.None);
 
-        bool isChased = false;
 
         foreach (EnemyMovement enemy in enemies)
         {
@@ -38,6 +37,8 @@ public class ChasingWarningUI : MonoBehaviour
                 isChased = true;
                 break;
             }
+            else
+                isChased = false;
         }
 
         if (isChased)

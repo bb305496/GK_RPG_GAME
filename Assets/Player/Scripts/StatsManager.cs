@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 
 public class StatsManager : MonoBehaviour
 {
+    private ChasingWarningUI chasingWarning;
     public static StatsManager Instance;
     public TMP_Text healthText;
 
@@ -40,6 +41,7 @@ public class StatsManager : MonoBehaviour
     private void Start()
     {
         healingTimer = healingCooldown;
+        chasingWarning = FindFirstObjectByType<ChasingWarningUI>();
     }
 
     private void Update()
@@ -70,6 +72,11 @@ public class StatsManager : MonoBehaviour
 
     public void PassiveHealing()
     {
+        // Jeœli gracz jest œcigany – nie lecz!
+        if (chasingWarning != null && chasingWarning.IsBeingChased())
+        {
+            return;
+        }
         healingTimer -= Time.deltaTime;
         if (healingTimer <= 0)
         {

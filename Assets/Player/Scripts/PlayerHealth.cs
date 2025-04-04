@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     //public Animator healthOutlineAnim;
     public StatsUI stastUI;
 
-    private ChasingWarningUI chasingWarning;
 
 
     private UIFill uiFill;
@@ -19,9 +18,6 @@ public class PlayerHealth : MonoBehaviour
     {
         StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth;
         uiFill = FindFirstObjectByType<UIFill>();
-
-        chasingWarning = FindFirstObjectByType<ChasingWarningUI>();
-
         healthText.text = StatsManager.Instance.currentHealth + "/" + StatsManager.Instance.maxHealth;
     }
 
@@ -32,11 +28,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        // Stop heal while chasing
-        if (amount > 0 && chasingWarning != null && chasingWarning.IsBeingChased())
-        {
-            return;
-        }
 
         StatsManager.Instance.currentHealth += amount;
         healthTextAnim.Play("HealthText");
