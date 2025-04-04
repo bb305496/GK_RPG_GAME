@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 6093606}
   - component: {fileID: 6093605}
   - component: {fileID: 6093607}
+  - component: {fileID: 6093608}
   m_Layer: 0
   m_Name: InventoryUI
   m_TagString: Untagged
@@ -222,7 +223,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &6093605
 MonoBehaviour:
@@ -246,7 +247,7 @@ CanvasGroup:
   m_GameObject: {fileID: 6093600}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &6093607
@@ -290,8 +291,21 @@ MonoBehaviour:
   - {fileID: 131418138}
   - {fileID: 689844173}
   - {fileID: 1218381930}
+  useItem: {fileID: 6093608}
   gold: 0
   goldText: {fileID: 1466748456}
+--- !u!114 &6093608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e83a3400b186414180df9092924a0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &20304600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,6 +317,22 @@ PrefabInstance:
     - target: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_Name
       value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1079268997177660901, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,6 +1123,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onion
       objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1079268997177660901, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.2
@@ -1497,7 +1543,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 90, y: 90}
-  m_Spacing: {x: 15, y: 15}
+  m_Spacing: {x: 15, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &306477749
@@ -3975,6 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bd3b7091eb10a459eff5ac63c1ce8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsUI: {fileID: 1719015617}
   healthText: {fileID: 7665414734895944281}
   damage: 1
   weaponRange: 1
@@ -12118,9 +12165,21 @@ PrefabInstance:
       value: Gold
       objectReference: {fileID: 0}
     - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1172655081555679744, guid: 42bcfc7c922953748a6e876f5f001815, type: 3}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1079268997177660901, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -12384,6 +12443,22 @@ PrefabInstance:
     - target: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_Name
       value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1079268997177660901, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15375,6 +15450,22 @@ PrefabInstance:
     - target: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_Name
       value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+    - target: {fileID: 540404765340367186, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1079268997177660901, guid: 1247f7321651041468f28ccee69753c0, type: 3}
       propertyPath: m_LocalPosition.x
