@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
@@ -19,11 +20,17 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (quantity > 0)
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        foreach (RaycastResult result in results)
         {
-            if (eventData.button == PointerEventData.InputButton.Left)
+            InventorySlot clickedSlot = result.gameObject.GetComponent<InventorySlot>();
+
+            if (clickedSlot != null)
             {
-                inventoryManager.UseItem(this);
+                inventoryManager.UseItem(clickedSlot);
+                return;
             }
         }
     }
