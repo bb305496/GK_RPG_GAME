@@ -25,7 +25,7 @@ public class Loot : MonoBehaviour
         {
             anim.Play("LootPickUp");
             OnItemLooted?.Invoke(itemSO, quantity);
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.2f);
         }
     }
 }
