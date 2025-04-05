@@ -223,7 +223,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &6093605
 MonoBehaviour:
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3119,7 +3119,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &526801517
 RectTransform:
@@ -3629,6 +3629,7 @@ MonoBehaviour:
   expSlider: {fileID: 773903923}
   levelText: {fileID: 1101754706}
   statsManager: {fileID: 818227350}
+  statsUI: {fileID: 1719015617}
 --- !u!1001 &689844171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9443,7 +9444,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!225 &900247475
 CanvasGroup:
@@ -10737,8 +10738,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284552469
-  m_fontColor: {r: 0.08235294, g: 0.08235294, b: 0.3803922, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12292,20 +12293,24 @@ PrefabInstance:
       value: StatsSlot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.3803922
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.08235294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.08235294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4284552469
+      value: 3355443200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13717,14 +13722,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5365800500679840340, guid: 65a74895e37b52c45ac97dde9170f59d, type: 3}
+  m_Sprite: {fileID: 7258301507126982812, guid: 93227a03b43d365448f3dcaa55002800, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14817,20 +14822,24 @@ PrefabInstance:
       value: StatsSlot (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.3803922
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.08235294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.08235294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4284552469
+      value: 3355443200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15042,8 +15051,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284552469
-  m_fontColor: {r: 0.08235294, g: 0.08235294, b: 0.3803922, a: 1}
+    rgba: 3355443200
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15873,7 +15882,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5365800500679840340, guid: 65a74895e37b52c45ac97dde9170f59d, type: 3}
+  m_Sprite: {fileID: 7258301507126982812, guid: 93227a03b43d365448f3dcaa55002800, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16687,20 +16696,24 @@ PrefabInstance:
       value: StatsSlot
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.3803922
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.078431375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.078431375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7184758633622189608, guid: 14857d90df1c13043b6246034cbd3be1, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4284552212
+      value: 3355443200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -18,7 +18,6 @@ public class StatsUI : MonoBehaviour
         if (Input.GetButtonDown("ToggleStats"))
             if (statsOpen)
             {
-                Time.timeScale = 1;
                 UpdateAllStats();
                 statsCanvas.alpha = 0;
                 statsCanvas.blocksRaycasts = false;
@@ -26,7 +25,6 @@ public class StatsUI : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0;
                 UpdateAllStats();
                 statsCanvas.alpha = 1;
                 statsCanvas.blocksRaycasts = true;

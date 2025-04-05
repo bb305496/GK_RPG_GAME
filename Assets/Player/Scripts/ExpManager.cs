@@ -12,6 +12,7 @@ public class ExpManager : MonoBehaviour
     public Slider expSlider;
     public TMP_Text levelText;
     public StatsManager statsManager;
+    public StatsUI statsUI;
 
     public static event Action<int> OnLevelUp;
 
@@ -50,6 +51,7 @@ public class ExpManager : MonoBehaviour
         statsManager.damage += 1;
         statsManager.maxHealth += 1;
         statsManager.currentHealth += 1;
+        statsUI.UpdateAllStats();
     }
 
     public void UpdateUI()
