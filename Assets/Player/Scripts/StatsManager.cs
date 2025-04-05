@@ -104,13 +104,22 @@ public class StatsManager : MonoBehaviour
         if (itemSO == null) return;
 
         if (itemSO.maxHealth != 0)
+        {
             UpdateMaxHealth(itemSO.maxHealth);
+            statsUI.UpdateAllStats();
+        }
 
         if (itemSO.speed != 0)
+        {
             UpdateSpeed(itemSO.speed);
+            statsUI.UpdateAllStats();
+        }
 
         if (itemSO.damage != 0)
+        {
             UpdateMaxDmg(itemSO.damage);
+            statsUI.UpdateAllStats();
+        }
     }
 
     public void RemoveEquipmentStats(ItemSO itemSO)
@@ -118,12 +127,21 @@ public class StatsManager : MonoBehaviour
         if (itemSO == null) return;
 
         if (itemSO.maxHealth != 0)
+        {
             UpdateMaxHealth(-itemSO.maxHealth);
+            statsUI.UpdateAllStats();
+        }
 
         if (itemSO.speed != 0)
+        {
             UpdateSpeed(-itemSO.speed);
+            statsUI.UpdateAllStats();
+        }
 
         if (itemSO.damage != 0)
+        {
             UpdateMaxDmg(-itemSO.damage);
+            statsUI.UpdateAllStats();
+        }
     }
 }
