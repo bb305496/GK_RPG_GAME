@@ -20,19 +20,18 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, results);
-
-        foreach (RaycastResult result in results)
+        if(quantity > 0)
         {
-            InventorySlot clickedSlot = result.gameObject.GetComponent<InventorySlot>();
-
-            if (clickedSlot != null)
+            if(eventData.button == PointerEventData.InputButton.Left)
             {
-                inventoryManager.UseItem(clickedSlot);
-                return;
+                inventoryManager.UseItem(this);
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                inventoryManager.DropItem(this);
             }
         }
+
     }
 
     public void UpdateUI()
