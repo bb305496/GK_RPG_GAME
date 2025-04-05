@@ -99,5 +99,31 @@ public class StatsManager : MonoBehaviour
         speed += amount;
         statsUI.UpdateAllStats();
     }
+    public void ApplyEquipmentStats(ItemSO itemSO)
+    {
+        if (itemSO == null) return;
 
+        if (itemSO.maxHealth != 0)
+            UpdateMaxHealth(itemSO.maxHealth);
+
+        if (itemSO.speed != 0)
+            UpdateSpeed(itemSO.speed);
+
+        if (itemSO.damage != 0)
+            UpdateMaxDmg(itemSO.damage);
+    }
+
+    public void RemoveEquipmentStats(ItemSO itemSO)
+    {
+        if (itemSO == null) return;
+
+        if (itemSO.maxHealth != 0)
+            UpdateMaxHealth(-itemSO.maxHealth);
+
+        if (itemSO.speed != 0)
+            UpdateSpeed(-itemSO.speed);
+
+        if (itemSO.damage != 0)
+            UpdateMaxDmg(-itemSO.damage);
+    }
 }

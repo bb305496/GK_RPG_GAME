@@ -40,7 +40,22 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             itemImage.sprite = itmeSO.icon;
             itemImage.gameObject.SetActive(true);
-            quantityText.text = quantity.ToString();
+
+            if (itmeSO.itemType == ItemType.Helmet || 
+                itmeSO.itemType == ItemType.Chest ||
+                itmeSO.itemType == ItemType.Gloves ||
+                itmeSO.itemType == ItemType.Necklace ||
+                itmeSO.itemType == ItemType.Sword ||
+                itmeSO.itemType == ItemType.Pants ||
+                itmeSO.itemType == ItemType.Shield ||
+                itmeSO.itemType == ItemType.Boots)
+            {
+                quantityText.text = "";
+            }
+            else
+            {
+                quantityText.text = quantity.ToString();
+            }
         }
         else
         {

@@ -6,7 +6,13 @@ public class UseItem : MonoBehaviour
     public void ApplyItemEffect(ItemSO itemSO)
     {
         if (itemSO.maxHealth > 0)
+            StatsManager.Instance.UpdateMaxHealth(itemSO.maxHealth);
+
+        if (itemSO.currentHealth > 0)
             StatsManager.Instance.UpdateMaxHealth(itemSO.currentHealth);
+
+        if (itemSO.damage > 0)
+            StatsManager.Instance.UpdateMaxDmg(itemSO.damage);
 
         if (itemSO.speed > 0)
             StatsManager.Instance.UpdateSpeed(itemSO.speed);
@@ -22,7 +28,13 @@ public class UseItem : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         if (itemSO.maxHealth > 0)
-            StatsManager.Instance.UpdateMaxHealth(-itemSO.currentHealth);
+            StatsManager.Instance.UpdateMaxHealth(-itemSO.maxHealth);
+
+        if (itemSO.currentHealth > 0)
+            StatsManager.Instance.UpdateMaxHealth(itemSO.currentHealth);
+
+        if (itemSO.damage > 0)
+            StatsManager.Instance.UpdateMaxDmg(itemSO.damage);
 
         if (itemSO.speed > 0)
             StatsManager.Instance.UpdateSpeed(-itemSO.speed);

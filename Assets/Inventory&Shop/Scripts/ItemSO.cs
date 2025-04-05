@@ -6,6 +6,7 @@ public class ItemSO : ScriptableObject
     public string itemName;
     [TextArea]public string itemDescription;
     public Sprite icon;
+    public ItemType itemType;
 
     public bool isGold;
     public int stackSize = 1;    
@@ -18,4 +19,26 @@ public class ItemSO : ScriptableObject
 
     [Header("For Temporary Itmes")]
     public float duration;
+
+
+    public void OnValidate()
+    {
+        if (itemType == ItemType.Helmet || itemType == ItemType.Chest)
+        {
+            stackSize = 1;
+        }
+    }
+}
+
+public enum ItemType
+{
+    Consumable,
+    Helmet,
+    Chest,
+    Gloves,
+    Necklace,
+    Sword,
+    Pants,
+    Shield,
+    Boots
 }
