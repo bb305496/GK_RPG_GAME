@@ -16,6 +16,7 @@ MonoBehaviour:
   itemDescription: What is this Polish vegetable!!?
   icon: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
   isGold: 0
+  stackSize: 8
   currentHealth: 0
   maxHealth: 0
   speed: 3
