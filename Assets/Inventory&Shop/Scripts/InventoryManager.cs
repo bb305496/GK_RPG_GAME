@@ -7,6 +7,8 @@ public class InventoryManager : MonoBehaviour
     public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
+    public GameObject lootPrefab;
+    public Transform player;
 
     private void Start()
     { 
@@ -64,7 +66,29 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
         }
+
+        if(quantity > 0)
+        {
+            DropLoot(itemSO, quantity);
+        }
         
+    }
+
+    public void DropItem(InventorySlot slot)
+    {
+        DropLoot(slot.itmeSO, 1);
+        slot.quantity--;
+        if (slot.quantity <= 0)
+        {
+            slot.itmeSO = null;
+        }
+        slot.UpdateUI();
+    }
+
+    private void DropLoot(ItemSO itemSO, int quantity)
+    {
+       Loot loot = Instantiate(lootPrefab, player.position, Quaternion.identity).GetComponent<Loot>();
+       loot.Initialize(itemSO, quantity);
     }
 
     public void UseItem(InventorySlot slot)

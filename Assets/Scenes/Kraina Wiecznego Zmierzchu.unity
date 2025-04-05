@@ -294,6 +294,8 @@ MonoBehaviour:
   useItem: {fileID: 6093608}
   gold: 0
   goldText: {fileID: 1466748456}
+  lootPrefab: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
+  player: {fileID: 6572103504172060842}
 --- !u!114 &6093608
 MonoBehaviour:
   m_ObjectHideFlags: 0
