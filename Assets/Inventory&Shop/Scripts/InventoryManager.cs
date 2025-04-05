@@ -5,6 +5,7 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] itemSlots;
     public InventorySlot helmetSlot;
+    public InventorySlot chestSlot;
     public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
@@ -18,7 +19,14 @@ public class InventoryManager : MonoBehaviour
             slot.UpdateUI();
         }
 
+        UpdateEquipUI();
+
+    }
+
+    private void UpdateEquipUI()
+    {
         helmetSlot.UpdateUI();
+        chestSlot.UpdateUI();
     }
 
     private void OnEnable()
@@ -84,6 +92,10 @@ public class InventoryManager : MonoBehaviour
         {
             StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
         }
+        if (slot == chestSlot)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
+        }
 
         slot.quantity--;
         if (slot.quantity <= 0)
@@ -106,6 +118,12 @@ public class InventoryManager : MonoBehaviour
             if (slot.itmeSO.itemType == ItemType.Helmet)
             {
                 EquipHelmet(slot);
+                return;
+            }
+
+            if(slot.itmeSO.itemType == ItemType.Chest)
+            {
+                EquipChest(slot);
                 return;
             }
 
@@ -145,6 +163,39 @@ public class InventoryManager : MonoBehaviour
         helmetSlot.quantity = 1;
         helmetSlot.UpdateUI();
         StatsManager.Instance.ApplyEquipmentStats(helmetSlot.itmeSO); 
+
+        slot.quantity--;
+        if (slot.quantity <= 0)
+        {
+            slot.itmeSO = null;
+        }
+        slot.UpdateUI();
+    }
+
+    private void EquipChest(InventorySlot slot)
+    {
+        if (chestSlot.itmeSO == slot.itmeSO)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(chestSlot.itmeSO);
+
+            AddItem(chestSlot.itmeSO, 1);
+
+            chestSlot.itmeSO = null;
+            chestSlot.quantity = 0;
+            chestSlot.UpdateUI();
+            return;
+        }
+
+        if (chestSlot.itmeSO != null)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(chestSlot.itmeSO);
+            AddItem(chestSlot.itmeSO, 1);
+        }
+
+        chestSlot.itmeSO = slot.itmeSO;
+        chestSlot.quantity = 1;
+        chestSlot.UpdateUI();
+        StatsManager.Instance.ApplyEquipmentStats(chestSlot.itmeSO);
 
         slot.quantity--;
         if (slot.quantity <= 0)

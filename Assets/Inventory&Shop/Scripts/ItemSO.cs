@@ -23,7 +23,7 @@ public class ItemSO : ScriptableObject
 
     public void OnValidate()
     {
-        if (itemType == ItemType.Helmet)
+        if (itemType == ItemType.Helmet || itemType == ItemType.Chest)
         {
             stackSize = 1;
         }
@@ -33,5 +33,6 @@ public class ItemSO : ScriptableObject
 public enum ItemType
 {
     Consumable,
-    Helmet  
+    Helmet,
+    Chest
 }
