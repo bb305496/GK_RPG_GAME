@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] itemSlots;
     public InventorySlot helmetSlot;
     public InventorySlot chestSlot;
+    public InventorySlot glovesSlot;
     public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
@@ -27,6 +28,7 @@ public class InventoryManager : MonoBehaviour
     {
         helmetSlot.UpdateUI();
         chestSlot.UpdateUI();
+        glovesSlot.UpdateUI();
     }
 
     private void OnEnable()
@@ -116,7 +118,8 @@ public class InventoryManager : MonoBehaviour
         if(slot.itmeSO != null && slot.quantity >=0)
         {
             if (slot.itmeSO.itemType == ItemType.Helmet ||
-                slot.itmeSO.itemType == ItemType.Chest)
+                slot.itmeSO.itemType == ItemType.Chest ||
+                slot.itmeSO.itemType == ItemType.Gloves)
             {
                 EquipItem(slot);
                 return;
@@ -178,6 +181,8 @@ public class InventoryManager : MonoBehaviour
                 return helmetSlot;
             case ItemType.Chest:
                 return chestSlot;
+            case ItemType.Gloves:
+                return glovesSlot;
             default:
                 return null;
         }

@@ -34,5 +34,6 @@ public enum ItemType
 {
     Consumable,
     Helmet,
-    Chest
+    Chest,
+    Gloves
 }
