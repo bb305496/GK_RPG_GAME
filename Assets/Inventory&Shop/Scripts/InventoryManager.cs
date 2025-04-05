@@ -4,6 +4,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] itemSlots;
+    public InventorySlot helmetSlot;
     public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
@@ -17,6 +18,7 @@ public class InventoryManager : MonoBehaviour
             slot.UpdateUI();
         }
 
+        helmetSlot.UpdateUI();
     }
 
     private void OnEnable()
@@ -77,6 +79,12 @@ public class InventoryManager : MonoBehaviour
     public void DropItem(InventorySlot slot)
     {
         DropLoot(slot.itmeSO, 1);
+
+        if (slot == helmetSlot)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
+        }
+
         slot.quantity--;
         if (slot.quantity <= 0)
         {
@@ -95,6 +103,13 @@ public class InventoryManager : MonoBehaviour
     {
         if(slot.itmeSO != null && slot.quantity >=0)
         {
+            if (slot.itmeSO.itemType == ItemType.Helmet)
+            {
+                EquipHelmet(slot);
+                return;
+            }
+
+
             useItem.ApplyItemEffect(slot.itmeSO);
 
             slot.quantity--;
@@ -104,5 +119,38 @@ public class InventoryManager : MonoBehaviour
             }
             slot.UpdateUI();
         }
+    }
+
+    private void EquipHelmet(InventorySlot slot)
+    {
+        if (helmetSlot.itmeSO == slot.itmeSO)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(helmetSlot.itmeSO); 
+
+            AddItem(helmetSlot.itmeSO, 1);
+
+            helmetSlot.itmeSO = null;
+            helmetSlot.quantity = 0;
+            helmetSlot.UpdateUI();
+            return;
+        }
+
+        if (helmetSlot.itmeSO != null)
+        {
+            StatsManager.Instance.RemoveEquipmentStats(helmetSlot.itmeSO); 
+            AddItem(helmetSlot.itmeSO, 1); 
+        }
+
+        helmetSlot.itmeSO = slot.itmeSO;
+        helmetSlot.quantity = 1;
+        helmetSlot.UpdateUI();
+        StatsManager.Instance.ApplyEquipmentStats(helmetSlot.itmeSO); 
+
+        slot.quantity--;
+        if (slot.quantity <= 0)
+        {
+            slot.itmeSO = null;
+        }
+        slot.UpdateUI();
     }
 }

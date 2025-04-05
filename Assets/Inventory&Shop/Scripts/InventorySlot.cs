@@ -40,7 +40,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             itemImage.sprite = itmeSO.icon;
             itemImage.gameObject.SetActive(true);
-            quantityText.text = quantity.ToString();
+
+            // Ukryj tekst iloœci, jeœli to he³m
+            if (itmeSO.itemType == ItemType.Helmet)
+            {
+                quantityText.text = "";
+            }
+            else
+            {
+                quantityText.text = quantity.ToString();
+            }
         }
         else
         {
