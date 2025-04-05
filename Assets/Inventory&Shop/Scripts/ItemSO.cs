@@ -35,5 +35,10 @@ public enum ItemType
     Consumable,
     Helmet,
     Chest,
-    Gloves
+    Gloves,
+    Necklace,
+    Sword,
+    Pants,
+    Shield,
+    Boots
 }

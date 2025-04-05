@@ -7,6 +7,11 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot helmetSlot;
     public InventorySlot chestSlot;
     public InventorySlot glovesSlot;
+    public InventorySlot necklaceSlot;
+    public InventorySlot swordSlot;
+    public InventorySlot pantsSlot;
+    public InventorySlot shieldSlot;
+    public InventorySlot bootsSlot;
     public UseItem useItem;
     public int gold;
     public TMP_Text goldText;
@@ -29,6 +34,11 @@ public class InventoryManager : MonoBehaviour
         helmetSlot.UpdateUI();
         chestSlot.UpdateUI();
         glovesSlot.UpdateUI();
+        necklaceSlot.UpdateUI();
+        swordSlot.UpdateUI();
+        pantsSlot.UpdateUI();
+        shieldSlot.UpdateUI();
+        bootsSlot.UpdateUI();
     }
 
     private void OnEnable()
@@ -90,14 +100,18 @@ public class InventoryManager : MonoBehaviour
     {
         DropLoot(slot.itmeSO, 1);
 
-        if (slot == helmetSlot)
+        if (slot == helmetSlot ||
+            slot == chestSlot ||
+            slot == glovesSlot ||
+            slot == necklaceSlot ||
+            slot == swordSlot ||
+            slot == pantsSlot ||
+            slot == shieldSlot ||
+            slot == bootsSlot)
         {
             StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
         }
-        if (slot == chestSlot)
-        {
-            StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
-        }
+
 
         slot.quantity--;
         if (slot.quantity <= 0)
@@ -119,7 +133,12 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.itmeSO.itemType == ItemType.Helmet ||
                 slot.itmeSO.itemType == ItemType.Chest ||
-                slot.itmeSO.itemType == ItemType.Gloves)
+                slot.itmeSO.itemType == ItemType.Gloves ||
+                slot.itmeSO.itemType == ItemType.Necklace ||
+                slot.itmeSO.itemType == ItemType.Sword ||
+                slot.itmeSO.itemType == ItemType.Pants ||
+                slot.itmeSO.itemType == ItemType.Shield ||
+                slot.itmeSO.itemType == ItemType.Boots)
             {
                 EquipItem(slot);
                 return;
@@ -183,6 +202,16 @@ public class InventoryManager : MonoBehaviour
                 return chestSlot;
             case ItemType.Gloves:
                 return glovesSlot;
+            case ItemType.Necklace:
+                return necklaceSlot;
+            case ItemType.Sword:
+                return swordSlot;
+            case ItemType.Pants:
+                return pantsSlot;
+            case ItemType.Shield:
+                return shieldSlot;
+            case ItemType.Boots:
+                return bootsSlot;
             default:
                 return null;
         }

@@ -12,7 +12,7 @@ public class UseItem : MonoBehaviour
             StatsManager.Instance.UpdateMaxHealth(itemSO.currentHealth);
 
         if (itemSO.damage > 0)
-            StatsManager.Instance.UpdateMaxHealth(itemSO.damage);
+            StatsManager.Instance.UpdateMaxDmg(itemSO.damage);
 
         if (itemSO.speed > 0)
             StatsManager.Instance.UpdateSpeed(itemSO.speed);
@@ -34,7 +34,7 @@ public class UseItem : MonoBehaviour
             StatsManager.Instance.UpdateMaxHealth(itemSO.currentHealth);
 
         if (itemSO.damage > 0)
-            StatsManager.Instance.UpdateMaxHealth(itemSO.damage);
+            StatsManager.Instance.UpdateMaxDmg(itemSO.damage);
 
         if (itemSO.speed > 0)
             StatsManager.Instance.UpdateSpeed(-itemSO.speed);
