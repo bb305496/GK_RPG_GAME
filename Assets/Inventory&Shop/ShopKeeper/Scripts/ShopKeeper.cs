@@ -10,9 +10,9 @@ public class ShopKeeper : MonoBehaviour
     public CanvasGroup shopCanvasGroup;
     public ShopManager shopManager;
 
-    [SerializeField] private List<ShopItems> shopItems;
-    [SerializeField] private List<ShopItems> shopWeapons;
-    [SerializeField] private List<ShopItems> shopArmour;
+    [SerializeField] public List<ShopItems> shopItems;
+    [SerializeField] public List<ShopItems> shopWeapons;
+    [SerializeField] public List<ShopItems> shopArmour;
     public static event Action<ShopManager, bool> OnShopStateChanged;
 
     private bool playerInRange = false;

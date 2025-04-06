@@ -53,13 +53,51 @@ public class ShopManager : MonoBehaviour
         if (itemSO == null)
             return;
 
+        
         foreach (var slot in shopSlots)
         {
-            if(slot.itemSO == itemSO)
+            if (slot.itemSO == itemSO)
             {
                 inventoryManager.gold += slot.price / 2;
                 inventoryManager.goldText.text = inventoryManager.gold.ToString();
                 return;
+            }
+        }
+
+        
+        if (ShopKeeper.currentShopKeeper != null)
+        {
+            
+            foreach (var shopItem in ShopKeeper.currentShopKeeper.shopItems)
+            {
+                if (shopItem.itemSO == itemSO)
+                {
+                    inventoryManager.gold += shopItem.price / 2;
+                    inventoryManager.goldText.text = inventoryManager.gold.ToString();
+                    return;
+                }
+            }
+
+            
+            foreach (var shopItem in ShopKeeper.currentShopKeeper.shopWeapons)
+            {
+                if (shopItem.itemSO == itemSO)
+                {
+                    inventoryManager.gold += shopItem.price / 2;
+                    inventoryManager.goldText.text = inventoryManager.gold.ToString();
+                    return;
+                }
+            }
+
+            
+            foreach (var shopItem in ShopKeeper.currentShopKeeper.shopArmour)
+            {
+                if (shopItem.itemSO == itemSO)
+                {
+                    inventoryManager.gold += shopItem.price / 2;
+                    inventoryManager.goldText.text = inventoryManager.gold.ToString();
+                    return;
+                }
             }
         }
     }

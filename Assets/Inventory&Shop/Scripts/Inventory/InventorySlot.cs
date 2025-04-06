@@ -36,7 +36,9 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(quantity > 0)
+        if (itemSO == null || quantity <= 0) return;
+
+        if (quantity > 0)
         {
             if(eventData.button == PointerEventData.InputButton.Left)
             {
