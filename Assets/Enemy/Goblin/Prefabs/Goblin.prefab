@@ -529,6 +529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad5abfb457c1754cb6507f8b946414f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleLoot:
+  - item: {fileID: 11400000, guid: 44e1da36fffee084ba56e0876628bd99, type: 2}
+    minQuantity: 10
+    maxQuantity: 100
+    dropChance: 0.529
+  lootPrefab: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
   expReward: 3
   currentHealth: 0
   maxHealth: 3

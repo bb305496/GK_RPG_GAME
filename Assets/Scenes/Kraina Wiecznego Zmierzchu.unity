@@ -3608,8 +3608,8 @@ PolygonCollider2D:
       - {x: 16.967972, y: -13.925041}
       - {x: 23.763182, y: -16.247807}
       - {x: 32.62159, y: -18.328304}
-      - {x: 39.93143, y: -18.843403}
-      - {x: 39.684765, y: -6.2026267}
+      - {x: 57.588562, y: -33.807076}
+      - {x: 61.531723, y: -7.2999625}
       - {x: 32.73471, y: -2.9471815}
       - {x: 30.878101, y: 2.9910038}
   m_UseDelaunayMesh: 0
@@ -12487,6 +12487,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 86
+      m_TileSpriteIndex: 86
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -12891,7 +12901,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 60fd683066f34484f89b60ae8555dc72, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: dc53d8c66e03b874f8035b9b68672030, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 0d9d76c8e47306343bc40a2fbcf76102, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: b7ab6082888ea6245a1a681b99310976, type: 2}
@@ -13086,7 +13096,7 @@ Tilemap:
     m_Data: {fileID: 525474185, guid: 1d653a28641797a4fab4a7d11925ea3e, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1741975573, guid: 1d653a28641797a4fab4a7d11925ea3e, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 97665148, guid: 1d653a28641797a4fab4a7d11925ea3e, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -719388154, guid: 1d653a28641797a4fab4a7d11925ea3e, type: 3}
@@ -13109,7 +13119,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -1305433389, guid: 1d653a28641797a4fab4a7d11925ea3e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 551
+  - m_RefCount: 552
     m_Data:
       e00: 1
       e01: 0
@@ -13128,7 +13138,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 551
+  - m_RefCount: 552
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -18302,7 +18312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7338111553265540586, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.44
+      value: -22.79
       objectReference: {fileID: 0}
     - target: {fileID: 7338111553265540586, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18338,12 +18348,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: maxEnemies
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 5408631429744423878, guid: feb87a9fda5259d44b59ef112edd854b, type: 3}
+    - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
+      propertyPath: maxSpawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241416546460840673, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
+      propertyPath: minSpawnTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9116767187508631426, guid: ec238762ee10c684293642f7a155f4fd, type: 3}
       propertyPath: m_Name
       value: EnemySpawnerGoblin
