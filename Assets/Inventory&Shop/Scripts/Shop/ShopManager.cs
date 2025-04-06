@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    public static event Action<ShopManager, bool> OnShopStateChanged;
+
     [SerializeField] private List<ShopItems> shopItems;
 
     [SerializeField] private ShopSlot[] shopSlots;
@@ -13,6 +16,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         PopulateShopItems();
+        OnShopStateChanged?.Invoke(this, true);
     }
     public void PopulateShopItems()
     {
@@ -46,12 +50,28 @@ public class ShopManager : MonoBehaviour
     {
         foreach(var slot in inventoryManager.itemSlots)
         {
-            if(slot.itmeSO == itemSO && slot.quantity < itemSO.stackSize)
+            if(slot.itemSO == itemSO && slot.quantity < itemSO.stackSize)
                 return true;
-            else if(slot.itmeSO == null)
+            else if(slot.itemSO == null)
                 return true;
         }
         return false;
+    }
+
+    public void SellItem(ItemSO itemSO)
+    {
+        if (itemSO == null)
+            return;
+
+        foreach (var slot in shopSlots)
+        {
+            if(slot.itemSO == itemSO)
+            {
+                inventoryManager.gold += slot.price / 2;
+                inventoryManager.goldText.text = inventoryManager.gold.ToString();
+                return;
+            }
+        }
     }
 }
 

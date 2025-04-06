@@ -10,7 +10,7 @@ public class ShopSlot : MonoBehaviour
     public Image itemImage;
 
     [SerializeField] private ShopManager shopManager;
-    private int price;
+    public int price;
 
     public void Initialize(ItemSO newItemSO, int price)
     {

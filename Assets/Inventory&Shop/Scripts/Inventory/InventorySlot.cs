@@ -6,17 +6,33 @@ using System.Collections.Generic;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
-    public ItemSO itmeSO;
+    public ItemSO itemSO;
     public int quantity;
 
     public Image itemImage;
     public TMP_Text quantityText;
 
     private InventoryManager inventoryManager;
+    private static ShopManager activeShop;
 
     private void Start()
     {
         inventoryManager = GetComponentInParent<InventoryManager>();
+    }
+
+    private void OnEnable()
+    {
+        ShopManager.OnShopStateChanged += HandleShopStateChanged; 
+    }
+
+    private void OnDisable()
+    {
+        ShopManager.OnShopStateChanged -= HandleShopStateChanged;
+    }
+
+    private void HandleShopStateChanged(ShopManager shopManager, bool isOpen)
+    {
+        activeShop = isOpen ? shopManager : null;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -24,7 +40,16 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             if(eventData.button == PointerEventData.InputButton.Left)
             {
-                inventoryManager.UseItem(this);
+                if (activeShop != null)
+                {
+                    activeShop.SellItem(itemSO);
+                    quantity--;
+                    UpdateUI();
+                }
+                else
+                {
+                    inventoryManager.UseItem(this);
+                }
             }
             else if (eventData.button == PointerEventData.InputButton.Right)
             {
@@ -36,19 +61,23 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
 
     public void UpdateUI()
     {
-        if(itmeSO != null)
+        if(quantity <= 0)
+            itemSO = null;
+
+
+        if(itemSO != null)
         {
-            itemImage.sprite = itmeSO.icon;
+            itemImage.sprite = itemSO.icon;
             itemImage.gameObject.SetActive(true);
 
-            if (itmeSO.itemType == ItemType.Helmet || 
-                itmeSO.itemType == ItemType.Chest ||
-                itmeSO.itemType == ItemType.Gloves ||
-                itmeSO.itemType == ItemType.Necklace ||
-                itmeSO.itemType == ItemType.Sword ||
-                itmeSO.itemType == ItemType.Pants ||
-                itmeSO.itemType == ItemType.Shield ||
-                itmeSO.itemType == ItemType.Boots)
+            if (itemSO.itemType == ItemType.Helmet || 
+                itemSO.itemType == ItemType.Chest ||
+                itemSO.itemType == ItemType.Gloves ||
+                itemSO.itemType == ItemType.Necklace ||
+                itemSO.itemType == ItemType.Sword ||
+                itemSO.itemType == ItemType.Pants ||
+                itemSO.itemType == ItemType.Shield ||
+                itemSO.itemType == ItemType.Boots)
             {
                 quantityText.text = "";
             }
