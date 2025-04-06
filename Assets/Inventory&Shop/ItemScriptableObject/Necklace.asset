@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Necklace
   m_EditorClassIdentifier: 
   itemName: Necklace
-  itemDescription: What is this Polish vegetable!!?
+  itemDescription: Necklace
   icon: {fileID: -2183295515347053266, guid: b13b71b8b5bf04c419fe4606116f8f77, type: 3}
   itemType: 4
   isGold: 0

@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var slot in itemSlots)
         {
-            if(slot.itmeSO == itemSO && slot.quantity < itemSO.stackSize)
+            if(slot.itemSO == itemSO && slot.quantity < itemSO.stackSize)
             {
                 int availableSpace = itemSO.stackSize - slot.quantity;
                 int amountToAdd = Mathf.Min(availableSpace, quantity);
@@ -79,10 +79,10 @@ public class InventoryManager : MonoBehaviour
 
         foreach(var slot in itemSlots)
         {
-            if(slot.itmeSO == null)
+            if(slot.itemSO == null)
             {
                 int amountToAdd = Mathf.Min(itemSO.stackSize, quantity);
-                slot.itmeSO = itemSO;
+                slot.itemSO = itemSO;
                 slot.quantity = quantity;
                 slot.UpdateUI();
                 return;
@@ -98,7 +98,7 @@ public class InventoryManager : MonoBehaviour
 
     public void DropItem(InventorySlot slot)
     {
-        DropLoot(slot.itmeSO, 1);
+        DropLoot(slot.itemSO, 1);
 
         if (slot == helmetSlot ||
             slot == chestSlot ||
@@ -109,14 +109,14 @@ public class InventoryManager : MonoBehaviour
             slot == shieldSlot ||
             slot == bootsSlot)
         {
-            StatsManager.Instance.RemoveEquipmentStats(slot.itmeSO);
+            StatsManager.Instance.RemoveEquipmentStats(slot.itemSO);
         }
 
 
         slot.quantity--;
         if (slot.quantity <= 0)
         {
-            slot.itmeSO = null;
+            slot.itemSO = null;
         }
         slot.UpdateUI();
     }
@@ -129,28 +129,28 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(InventorySlot slot)
     {
-        if(slot.itmeSO != null && slot.quantity >=0)
+        if(slot.itemSO != null && slot.quantity >=0)
         {
-            if (slot.itmeSO.itemType == ItemType.Helmet ||
-                slot.itmeSO.itemType == ItemType.Chest ||
-                slot.itmeSO.itemType == ItemType.Gloves ||
-                slot.itmeSO.itemType == ItemType.Necklace ||
-                slot.itmeSO.itemType == ItemType.Sword ||
-                slot.itmeSO.itemType == ItemType.Pants ||
-                slot.itmeSO.itemType == ItemType.Shield ||
-                slot.itmeSO.itemType == ItemType.Boots)
+            if (slot.itemSO.itemType == ItemType.Helmet ||
+                slot.itemSO.itemType == ItemType.Chest ||
+                slot.itemSO.itemType == ItemType.Gloves ||
+                slot.itemSO.itemType == ItemType.Necklace ||
+                slot.itemSO.itemType == ItemType.Sword ||
+                slot.itemSO.itemType == ItemType.Pants ||
+                slot.itemSO.itemType == ItemType.Shield ||
+                slot.itemSO.itemType == ItemType.Boots)
             {
                 EquipItem(slot);
                 return;
             }
 
 
-            useItem.ApplyItemEffect(slot.itmeSO);
+            useItem.ApplyItemEffect(slot.itemSO);
 
             slot.quantity--;
             if(slot.quantity <=0)
             {
-                slot.itmeSO = null;
+                slot.itemSO = null;
             }
             slot.UpdateUI();
         }
@@ -160,34 +160,34 @@ public class InventoryManager : MonoBehaviour
 
     private void EquipItem(InventorySlot slot)
     {
-        InventorySlot equipSlot = GetEquipmentSlotForItem(slot.itmeSO);
+        InventorySlot equipSlot = GetEquipmentSlotForItem(slot.itemSO);
         if (equipSlot == null) return;
 
-        if (equipSlot.itmeSO == slot.itmeSO)
+        if (equipSlot.itemSO == slot.itemSO)
         {
-            StatsManager.Instance.RemoveEquipmentStats(equipSlot.itmeSO);
-            AddItem(equipSlot.itmeSO, 1);
-            equipSlot.itmeSO = null;
+            StatsManager.Instance.RemoveEquipmentStats(equipSlot.itemSO);
+            AddItem(equipSlot.itemSO, 1);
+            equipSlot.itemSO = null;
             equipSlot.quantity = 0;
             equipSlot.UpdateUI();
             return;
         }
 
-        if (equipSlot.itmeSO != null)
+        if (equipSlot.itemSO != null)
         {
-            StatsManager.Instance.RemoveEquipmentStats(equipSlot.itmeSO);
-            AddItem(equipSlot.itmeSO, 1);
+            StatsManager.Instance.RemoveEquipmentStats(equipSlot.itemSO);
+            AddItem(equipSlot.itemSO, 1);
         }
 
-        equipSlot.itmeSO = slot.itmeSO;
+        equipSlot.itemSO = slot.itemSO;
         equipSlot.quantity = 1;
         equipSlot.UpdateUI();
-        StatsManager.Instance.ApplyEquipmentStats(equipSlot.itmeSO);
+        StatsManager.Instance.ApplyEquipmentStats(equipSlot.itemSO);
 
         slot.quantity--;
         if (slot.quantity <= 0)
         {
-            slot.itmeSO = null;
+            slot.itemSO = null;
         }
         slot.UpdateUI();
     }

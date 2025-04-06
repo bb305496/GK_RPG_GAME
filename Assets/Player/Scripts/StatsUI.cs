@@ -50,6 +50,6 @@ public class StatsUI : MonoBehaviour
 
     public void UpdateZWI()
     {
-        statsSlots[2].GetComponentInChildren<TMP_Text>().text = "ZWI " + StatsManager.Instance.speed;
+        statsSlots[2].GetComponentInChildren<TMP_Text>().text = "SPD " + StatsManager.Instance.speed;
     }
 }
