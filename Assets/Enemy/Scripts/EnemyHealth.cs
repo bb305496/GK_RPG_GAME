@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
                 var lootInstance = Instantiate(lootPrefab, transform.position, Quaternion.identity);
                 var lootComponent = lootInstance.GetComponent<Loot>();
 
-                lootComponent.Initialize(loot.item, quantity);
+                lootComponent.InitializeForEnemy(loot.item, quantity);
             }
         }
     }
