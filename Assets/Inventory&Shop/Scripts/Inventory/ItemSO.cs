@@ -23,7 +23,14 @@ public class ItemSO : ScriptableObject
 
     public void OnValidate()
     {
-        if (itemType == ItemType.Helmet || itemType == ItemType.Chest)
+        if (itemType == ItemType.Helmet ||
+                itemType == ItemType.Chest ||
+                itemType == ItemType.Gloves ||
+                itemType == ItemType.Necklace ||
+                itemType == ItemType.Sword ||
+                itemType == ItemType.Pants ||
+                itemType == ItemType.Shield ||
+                itemType == ItemType.Boots)
         {
             stackSize = 1;
         }

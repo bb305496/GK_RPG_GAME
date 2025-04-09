@@ -28,6 +28,15 @@ public class Loot : MonoBehaviour
         UpdateAppearance();
     }
 
+    public void InitializeForEnemy(ItemSO itemSO, int quantity)
+    {
+        this.itemSO = itemSO;
+        this.quantity = quantity;
+        canBePickedUp = true;
+
+        UpdateAppearance();
+    }
+
     public void UpdateAppearance()
     {
         sr.sprite = itemSO.icon;
