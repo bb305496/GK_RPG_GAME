@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
+  m_Name: Gloves
+  m_EditorClassIdentifier: 
+  itemName: Gloves
+  itemDescription: What is this Polish vegetable!!?
+  icon: {fileID: -7684651103923896403, guid: 21edfa83c63a1e2499331d8a7a1ea6fb, type: 3}
+  itemType: 3
+  isGold: 0
+  stackSize: 1
+  currentHealth: 7
+  maxHealth: 7
+  speed: 0
+  damage: 0
+  duration: 0
