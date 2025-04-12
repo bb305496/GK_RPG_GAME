@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
 public class ShopInfo : MonoBehaviour
 {
     public CanvasGroup infoPanel;
-
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
 
@@ -14,10 +12,21 @@ public class ShopInfo : MonoBehaviour
     public TMP_Text[] statTexts;
 
     private RectTransform infoPanelRect;
+    private Canvas parentCanvas;
+    private Vector2 panelSize;
+    private Vector2 offset = new Vector2(20, -20); 
 
     private void Awake()
     {
-        infoPanelRect = GetComponent<RectTransform>();
+        infoPanelRect = infoPanel.GetComponent<RectTransform>();
+        parentCanvas = GetComponentInParent<Canvas>();
+
+        panelSize = infoPanelRect.sizeDelta;
+        if (parentCanvas != null)
+        {
+            panelSize.x *= parentCanvas.transform.localScale.x;
+            panelSize.y *= parentCanvas.transform.localScale.y;
+        }
     }
 
     public void ShowItemInfo(ItemSO itemSO)
@@ -27,27 +36,19 @@ public class ShopInfo : MonoBehaviour
         itemDescriptionText.text = itemSO.itemDescription;
 
         List<string> stats = new List<string>();
-        if (itemSO.maxHealth > 0) stats.Add("Max HP: " + itemSO.maxHealth);
-        if (itemSO.currentHealth > 0) stats.Add("Healing: " + itemSO.currentHealth);
-        if (itemSO.damage > 0) stats.Add("DMG: " + itemSO.damage);  
-        if (itemSO.speed > 0) stats.Add("SPD: " + itemSO.speed);
-        if (itemSO.duration > 0) stats.Add("Duration: " + itemSO.duration);
-
-        if (stats.Count <= 0)
-            return;
+        if (itemSO.maxHealth != 0) stats.Add("Max HP: " + itemSO.maxHealth);
+        if (itemSO.currentHealth != 0) stats.Add("Healing: " + itemSO.currentHealth);
+        if (itemSO.damage != 0) stats.Add("DMG: " + itemSO.damage);
+        if (itemSO.speed != 0) stats.Add("SPD: " + itemSO.speed);
+        if (itemSO.duration != 0) stats.Add("Duration: " + itemSO.duration);
 
         for (int i = 0; i < statTexts.Length; i++)
         {
-            if (i < stats.Count)
-            {
-                statTexts[i].text = stats[i];
-                statTexts[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                statTexts[i].gameObject.SetActive(false);
-            }
+            statTexts[i].gameObject.SetActive(i < stats.Count);
+            if (i < stats.Count) statTexts[i].text = stats[i];
         }
+
+        FollowMouse();
     }
 
     public void HideItemInfo()
@@ -59,9 +60,35 @@ public class ShopInfo : MonoBehaviour
 
     public void FollowMouse()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 offset = new Vector3(20, -20, 0);
+        if (parentCanvas == null || infoPanel.alpha == 0) return;
 
-        infoPanelRect.position = mousePos + offset;
-    }    
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 adjustedPosition = mousePosition;
+        Vector2 finalOffset = offset;
+
+        if (mousePosition.x + panelSize.x + offset.x > Screen.width)
+        {
+            finalOffset.x = -panelSize.x - offset.x;
+        }
+
+        if (mousePosition.y + offset.y - panelSize.y < 0)
+        {
+            finalOffset.y = Mathf.Abs(offset.y) + panelSize.y;
+        }
+
+        if (mousePosition.y + finalOffset.y + panelSize.y > Screen.height)
+        {
+            finalOffset.y = -Mathf.Abs(offset.y) - panelSize.y;
+        }
+
+        infoPanelRect.position = mousePosition + finalOffset;
+    }
+
+    private void Update()
+    {
+        if (infoPanel.alpha > 0)
+        {
+            FollowMouse();
+        }
+    }
 }

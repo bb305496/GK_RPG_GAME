@@ -530,10 +530,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleLoot:
-  - item: {fileID: 11400000, guid: 44e1da36fffee084ba56e0876628bd99, type: 2}
-    minQuantity: 10
-    maxQuantity: 100
-    dropChance: 0.529
+  - item: {fileID: 11400000, guid: 8296eb295cb847c4fa9b765b17b00fec, type: 2}
+    minQuantity: 1
+    maxQuantity: 3
+    dropChance: 0.5
+  - item: {fileID: 11400000, guid: ca873408c27d1784e8f30d3a8958fb7d, type: 2}
+    minQuantity: 1
+    maxQuantity: 1
+    dropChance: 0.01
   lootPrefab: {fileID: 375409152161327384, guid: 1247f7321651041468f28ccee69753c0, type: 3}
   expReward: 3
   currentHealth: 0

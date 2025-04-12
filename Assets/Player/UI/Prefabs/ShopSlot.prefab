@@ -380,8 +380,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5589963974544508802}
   - {fileID: 5705177312295494515}
+  - {fileID: 5589963974544508802}
   - {fileID: 6234498359640323531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -501,6 +501,8 @@ MonoBehaviour:
   itemPriceText: {fileID: 360475536479506479}
   itemImage: {fileID: 8773443013202232735}
   shopManager: {fileID: 0}
+  shopInfo: {fileID: 0}
+  price: 0
 --- !u!1 &6161901407894430027
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e4af1133d5a8b64bbadc3e2b38c7eee, type: 3}
+  m_Sprite: {fileID: 781168609075625119, guid: 0232132ae79097c4e983f5c3c0ffcd29, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -641,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1172655081555679744, guid: 42bcfc7c922953748a6e876f5f001815, type: 3}
+  m_Sprite: {fileID: -3338749442709606003, guid: 242db9c9c5205ab4d96a734b5441525a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
