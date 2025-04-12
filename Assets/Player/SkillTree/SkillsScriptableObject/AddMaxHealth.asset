@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Add Max Health
   maxLevel: 5
-  skillIcon: {fileID: 9149266237482054482, guid: aa78f4336fdb1564496af523f3bc6a86, type: 3}
+  skillIcon: {fileID: 3068399232995378207, guid: 6554a20fa5834534e9cabab9210dfec1, type: 3}
