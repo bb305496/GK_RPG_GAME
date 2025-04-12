@@ -9,6 +9,9 @@ public class StatsManager : MonoBehaviour
     public StatsUI statsUI;
     public TMP_Text healthText;
 
+    [Header("Player Stats")]
+    public int level = 0;
+
     [Header("Combat Stats")]
     public int damage;
     public float weaponRange;

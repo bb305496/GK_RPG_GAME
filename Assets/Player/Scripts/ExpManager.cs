@@ -6,7 +6,6 @@ using System;
 
 public class ExpManager : MonoBehaviour
 {
-    public int level;
     public int currentExp;
     public int expToLevel = 10;
     public Slider expSlider;
@@ -44,7 +43,7 @@ public class ExpManager : MonoBehaviour
 
     private void LevelUp()
     {
-        level++;
+        StatsManager.Instance.level++;
         currentExp -= expToLevel;
         expToLevel = Mathf.RoundToInt(expToLevel * 1.2f);
         OnLevelUp?.Invoke(1);
@@ -58,6 +57,6 @@ public class ExpManager : MonoBehaviour
     {
         expSlider.maxValue = expToLevel;
         expSlider.value = currentExp;
-        levelText.text = "Level " + level; ;
+        levelText.text = "Level " + StatsManager.Instance.level; ;
     }
 }
