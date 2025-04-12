@@ -13,17 +13,17 @@ public class ButtonsScript : MonoBehaviour
             Destroy(AudioManager.instance.gameObject);
         }
 
-        StartCoroutine(DelayBeforeSceneChange(1));
+        StartCoroutine(DelayBeforeSceneChange("PrologScene"));
     }
 
     public void OptionsButtonClick()
     {
-        StartCoroutine(DelayBeforeSceneChange(2));
+        StartCoroutine(DelayBeforeSceneChange("SettingsScene"));
     }
 
     public void CreditsButtonClick()
     {
-        StartCoroutine(DelayBeforeSceneChange(3));
+        StartCoroutine(DelayBeforeSceneChange("CreditsScene"));
     }
 
     public void ExitButtonClick()
@@ -33,13 +33,13 @@ public class ButtonsScript : MonoBehaviour
 
     public void BackButtonsClick()
     {
-        StartCoroutine(DelayBeforeSceneChange(0));
+        StartCoroutine(DelayBeforeSceneChange("MainMenuScene"));
     }
  
-    private IEnumerator DelayBeforeSceneChange(int sceneInxed)
+    private IEnumerator DelayBeforeSceneChange(string sceneName)
     {
         yield return new WaitForSeconds(0.7f);
-        SceneManager.LoadScene(sceneInxed);
+        SceneManager.LoadScene(sceneName);
     }
 
     private IEnumerator DelayBeforeExit()
