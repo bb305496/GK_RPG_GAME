@@ -501,6 +501,8 @@ MonoBehaviour:
   itemPriceText: {fileID: 360475536479506479}
   itemImage: {fileID: 8773443013202232735}
   shopManager: {fileID: 0}
+  shopInfo: {fileID: 0}
+  price: 0
 --- !u!1 &6161901407894430027
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1172655081555679744, guid: 42bcfc7c922953748a6e876f5f001815, type: 3}
+  m_Sprite: {fileID: -3338749442709606003, guid: 242db9c9c5205ab4d96a734b5441525a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

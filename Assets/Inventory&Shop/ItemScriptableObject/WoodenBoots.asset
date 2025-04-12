@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: WoodenBoots
   m_EditorClassIdentifier: 
   itemName: WoodenBoots
-  itemDescription: Uncomfortable and cold
+  itemDescription: "Clunky wooden clogs\u2014great for stomping turnips, terrible
+    for sneaking."
   icon: {fileID: -1187535674933505697, guid: 0232132ae79097c4e983f5c3c0ffcd29, type: 3}
   itemType: 8
   isGold: 0
   stackSize: 1
   currentHealth: 0
-  maxHealth: 0
-  speed: 1
+  maxHealth: 3
+  speed: 0
   damage: 0
   duration: 0

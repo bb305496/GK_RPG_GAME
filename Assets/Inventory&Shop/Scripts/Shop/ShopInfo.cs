@@ -27,11 +27,11 @@ public class ShopInfo : MonoBehaviour
         itemDescriptionText.text = itemSO.itemDescription;
 
         List<string> stats = new List<string>();
-        if (itemSO.maxHealth > 0) stats.Add("Max HP: " + itemSO.maxHealth);
-        if (itemSO.currentHealth > 0) stats.Add("Healing: " + itemSO.currentHealth);
-        if (itemSO.damage > 0) stats.Add("DMG: " + itemSO.damage);  
-        if (itemSO.speed > 0) stats.Add("SPD: " + itemSO.speed);
-        if (itemSO.duration > 0) stats.Add("Duration: " + itemSO.duration);
+        if (itemSO.maxHealth != 0) stats.Add("Max HP: " + itemSO.maxHealth);
+        if (itemSO.currentHealth != 0) stats.Add("Healing: " + itemSO.currentHealth);
+        if (itemSO.damage != 0) stats.Add("DMG: " + itemSO.damage);  
+        if (itemSO.speed != 0) stats.Add("SPD: " + itemSO.speed);
+        if (itemSO.duration != 0) stats.Add("Duration: " + itemSO.duration);
 
         if (stats.Count <= 0)
             return;
