@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
   m_Name: WoodenShield
   m_EditorClassIdentifier: 
-  itemName: WoodenShield
-  itemDescription: "Plywood Defender \u2013 stops arrows (sometimes) and doubles
-    as a cutting board in emergencies."
+  itemName: Plywood Defender
+  itemDescription: Stops arrows (sometimes) and doubles as a cutting board in emergencies.
   icon: {fileID: -5655207180027744103, guid: 0232132ae79097c4e983f5c3c0ffcd29, type: 3}
   itemType: 7
   isGold: 0

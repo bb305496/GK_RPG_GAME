@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
   m_Name: WoodenHelmet
   m_EditorClassIdentifier: 
-  itemName: WoodenHelmet
-  itemDescription: "Wooden Noggin Protector \u2013 blocks swords, not jokes about
-    your fashion sense."
+  itemName: Wooden Noggin Protector
+  itemDescription: Blocks swords, not jokes about your fashion sense.
   icon: {fileID: 779106158819466266, guid: 0232132ae79097c4e983f5c3c0ffcd29, type: 3}
   itemType: 1
   isGold: 0

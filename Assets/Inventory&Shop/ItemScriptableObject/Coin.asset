@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  itemName: WoodenBoots
+  itemName: Coin
   itemDescription: Little shiny thing.
   icon: {fileID: -3338749442709606003, guid: 242db9c9c5205ab4d96a734b5441525a, type: 3}
   itemType: 0

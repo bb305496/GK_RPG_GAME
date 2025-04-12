@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e72c16cf3dc8ea4bb8a4e5ccfc000ce, type: 3}
   m_Name: WoodenSword
   m_EditorClassIdentifier: 
-  itemName: WoodenSword
-  itemDescription: "Wooden 'Blade' \u2013 perfect for training or pretending you
-    didn't bring a real weapon to a fight."
+  itemName: Wooden 'Blade'
+  itemDescription: Perfect for training or pretending you didn't bring a real weapon
+    to a fight.
   icon: {fileID: 261752078830539763, guid: 0232132ae79097c4e983f5c3c0ffcd29, type: 3}
   itemType: 5
   isGold: 0
@@ -22,5 +22,5 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   speed: 0
-  damage: 1
+  damage: 2
   duration: 0
