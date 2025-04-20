@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,12 +9,7 @@ public class ButtonsScript : MonoBehaviour
 
     public void PlayButtonClick()
     {
-        if(AudioManager.instance != null)
-        {
-            Destroy(AudioManager.instance.gameObject);
-        }
-
-        StartCoroutine(DelayBeforeSceneChange("PrologScene"));
+        StartCoroutine(DelayBeforeSceneChange("GameMenuScene"));
     }
 
     public void OptionsButtonClick()
@@ -35,7 +31,22 @@ public class ButtonsScript : MonoBehaviour
     {
         StartCoroutine(DelayBeforeSceneChange("MainMenuScene"));
     }
- 
+
+    public void NewGameClick()
+    {
+        if (AudioManager.instance != null)
+        {
+            Destroy(AudioManager.instance.gameObject);
+        }
+
+        StartCoroutine(DelayBeforeSceneChange("PrologScene"));
+    }
+
+    public void LoadGameClick()
+    {
+        UnityEngine.Debug.Log("Load Game clicked");
+    }
+
     private IEnumerator DelayBeforeSceneChange(string sceneName)
     {
         yield return new WaitForSeconds(0.7f);
@@ -45,7 +56,7 @@ public class ButtonsScript : MonoBehaviour
     private IEnumerator DelayBeforeExit()
     {
         yield return new WaitForSeconds(0.7f);
-        Debug.Log("Exit");
+        UnityEngine.Debug.Log("Exit");
         Application.Quit();
     }
 
