@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: a5f045cc7824e844fbee6f6a3da457b0
+  - enabled: 1
     path: Assets/Scenes/GameMenuScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -20,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KrainaWiecznegoZmierzchu.unity
     guid: 802eab28c8ae84b4099f456d275495bb
+  - enabled: 1
+    path: Assets/Scenes/Boss1Scene.unity
+    guid: 100eb93267ea7124d8ce97f99ea3012c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
