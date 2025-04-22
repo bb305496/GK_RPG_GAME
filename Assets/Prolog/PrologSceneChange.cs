@@ -10,14 +10,14 @@ public class PrologSceneChange : MonoBehaviour
     private float timeLeft = 5f;
     void Start()
     {
-        StartCoroutine(DelayBeforeSceneChange(videoTime, 4));
+        StartCoroutine(DelayBeforeSceneChange(videoTime, "KrainaWiecznegoZmierzchu"));
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("KrainaWiecznegoZmierzchu");
         }
 
         timeLeft -= Time.deltaTime;
@@ -29,10 +29,10 @@ public class PrologSceneChange : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayBeforeSceneChange(float seconds, int sceneInxed)
+    private IEnumerator DelayBeforeSceneChange(float seconds, string sceneName)
     {
         yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene(sceneInxed);
+        SceneManager.LoadScene(sceneName);
     }
 
 
