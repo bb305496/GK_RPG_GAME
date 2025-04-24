@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public float minSpawnTime;
     public float maxSpawnTime;
     public int maxEnemies;
+    public bool instaSpawn = false;
     private int currentNumberOfEnemies = 0;
 
     private float timeUntilSpawn;
@@ -23,17 +24,28 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-            timeUntilSpawn -= Time.deltaTime;
+        timeUntilSpawn -= Time.deltaTime;
 
-            if (timeUntilSpawn <= 0)
-            {
-                GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-                currentNumberOfEnemies += 1;
+        if (timeUntilSpawn <= 0)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            currentNumberOfEnemies += 1;
 
-                enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
+            enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
 
-                SetTimeUntilSpawn();
-            }
+            SetTimeUntilSpawn();
+        }
+
+        if(instaSpawn)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            currentNumberOfEnemies += 1;
+
+            enemy.GetComponent<EnemyHealth>().OnEnemyDestroyed += HandleEnemyDestroyed;
+
+            SetTimeUntilSpawn();
+            instaSpawn = false;
+        }
         
 
     }

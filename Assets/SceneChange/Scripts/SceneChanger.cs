@@ -12,6 +12,7 @@ public class SceneChanger : MonoBehaviour
     public float fadeTime = 1f;
     public Vector2 newPlayerPosition;
     public Image levelReqimage;
+    public int levelReq = 10; 
     public TMP_Text levelReqText;
     private Transform player;
 
@@ -29,7 +30,7 @@ public class SceneChanger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && StatsManager.Instance.level >= 10)
+        if (collision.CompareTag("Player") && StatsManager.Instance.level >= levelReq)
         {
             player = collision.transform;
             fadeAnim.Play("FadeToBlack");
@@ -45,7 +46,6 @@ public class SceneChanger : MonoBehaviour
             {
                 levelReqText.enabled = true;
             }
-            Debug.Log("You need to be level 10 to enter this area.");
         }
     }
 
