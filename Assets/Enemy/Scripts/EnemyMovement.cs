@@ -77,10 +77,28 @@ public class EnemyMovement : MonoBehaviour
         {
             player = hits[0].transform;
 
+            // Najpierw sprawdŸ czy trzeba siê odwróciæ
+            bool shouldFlip = (player.position.x > transform.position.x && facingDirection == -1) ||
+                              (player.position.x < transform.position.x && facingDirection == 1);
+
+            if (shouldFlip && Vector2.Distance(transform.position, player.transform.position) <= attackRange)
+            {
+                Flip(); // Odwróæ siê najpierw
+                ChangeState(EnemyState.Chasing); // PrzejdŸ do stanu poœcigu zamiast od razu atakowaæ
+                return;
+            }
+
             if (Vector2.Distance(transform.position, player.transform.position) <= attackRange && attackCooldownTimer <= 0)
             {
-                attackCooldownTimer = attackCooldown;
-                ChangeState(EnemyState.Attacking);
+                // SprawdŸ czy przeciwnik jest zwrócony w dobr¹ stronê przed atakiem
+                bool facingPlayer = (player.position.x > transform.position.x && facingDirection == 1) ||
+                                   (player.position.x < transform.position.x && facingDirection == -1);
+
+                if (facingPlayer)
+                {
+                    attackCooldownTimer = attackCooldown;
+                    ChangeState(EnemyState.Attacking);
+                }
             }
             else if (Vector2.Distance(transform.position, player.position) > attackRange && enemyState != EnemyState.Attacking)
             {
@@ -92,7 +110,6 @@ public class EnemyMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             ChangeState(EnemyState.Idle);
         }
-
     }
 
     public void ChangeState(EnemyState newState)
