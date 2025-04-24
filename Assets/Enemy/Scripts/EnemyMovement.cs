@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Diagnostics;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -20,6 +21,15 @@ public class EnemyMovement : MonoBehaviour
     private int facingDirection = 1;
     public float speed = 1f;
 
+    [Header("Thunder Attack Settings")]
+    public bool hasThunderAttack = false;
+    public float thunderAttackRange = 5f;
+    public float thunderAttackCooldown = 5f;
+    private float thunderAttackCooldownTimer;
+    public float castingTime = 1f; 
+    public GameObject thunderPrefab; 
+    public Transform thunderSpawnPoint; 
+
     public EnemyState CurrentState => enemyState;
 
     private void Start()
@@ -31,19 +41,18 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (enemyState != EnemyState.TakingDamage)
+        if (enemyState != EnemyState.TakingDamage && enemyState != EnemyState.Casting)
         {
             CheckForPlayer();
 
-            if (attackCooldownTimer > 0)
-            {
-                attackCooldownTimer -= Time.deltaTime;
-            }
+            if (attackCooldownTimer > 0) attackCooldownTimer -= Time.deltaTime;
+            if (thunderAttackCooldownTimer > 0) thunderAttackCooldownTimer -= Time.deltaTime;
+
             if (enemyState == EnemyState.Chasing)
             {
                 Chase();
             }
-            else if (enemyState == EnemyState.Attacking)
+            else if (enemyState == EnemyState.Attacking || enemyState == EnemyState.ThunderAttack)
             {
                 rb.linearVelocity = Vector2.zero;
             }
@@ -76,31 +85,38 @@ public class EnemyMovement : MonoBehaviour
         if (hits.Length > 0)
         {
             player = hits[0].transform;
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
 
-            // Najpierw sprawdŸ czy trzeba siê odwróciæ
+            
             bool shouldFlip = (player.position.x > transform.position.x && facingDirection == -1) ||
                               (player.position.x < transform.position.x && facingDirection == 1);
 
-            if (shouldFlip && Vector2.Distance(transform.position, player.transform.position) <= attackRange)
+            if (shouldFlip)
             {
-                Flip(); // Odwróæ siê najpierw
-                ChangeState(EnemyState.Chasing); // PrzejdŸ do stanu poœcigu zamiast od razu atakowaæ
+                Flip();
+            }
+
+
+            if (hasThunderAttack && distanceToPlayer <= thunderAttackRange &&
+                distanceToPlayer > attackRange && thunderAttackCooldownTimer <= 0)
+            {
+                thunderAttackCooldownTimer = thunderAttackCooldown;
+                ChangeState(EnemyState.Casting);
+                rb.linearVelocity = Vector2.zero;
+                StartCoroutine(ThunderAttackSequence()); 
                 return;
             }
 
-            if (Vector2.Distance(transform.position, player.transform.position) <= attackRange && attackCooldownTimer <= 0)
-            {
-                // SprawdŸ czy przeciwnik jest zwrócony w dobr¹ stronê przed atakiem
-                bool facingPlayer = (player.position.x > transform.position.x && facingDirection == 1) ||
-                                   (player.position.x < transform.position.x && facingDirection == -1);
 
-                if (facingPlayer)
-                {
-                    attackCooldownTimer = attackCooldown;
-                    ChangeState(EnemyState.Attacking);
-                }
+            if (distanceToPlayer <= attackRange && attackCooldownTimer <= 0)
+            {
+                attackCooldownTimer = attackCooldown;
+                ChangeState(EnemyState.Attacking);
             }
-            else if (Vector2.Distance(transform.position, player.position) > attackRange && enemyState != EnemyState.Attacking)
+            else if (distanceToPlayer > attackRange &&
+                    enemyState != EnemyState.Attacking &&
+                    enemyState != EnemyState.Casting &&
+                    enemyState != EnemyState.ThunderAttack)
             {
                 ChangeState(EnemyState.Chasing);
             }
@@ -114,6 +130,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChangeState(EnemyState newState)
     {
+        if (enemyState == newState) return;
         //Exit current animation
         if (enemyState == EnemyState.Idle)
             anim.SetBool("isIdle", false);
@@ -121,6 +138,8 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isMoving", false);
         else if (enemyState == EnemyState.Attacking)
             anim.SetBool("isAttacking", false);
+        else if(enemyState == EnemyState.Casting)
+            anim.SetBool("isCasting", false);
         else if (enemyState == EnemyState.TakingDamage)
             anim.SetBool("isTakingDamage", false);
 
@@ -134,9 +153,32 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isMoving", true);
         else if (enemyState == EnemyState.Attacking)
             anim.SetBool("isAttacking", true);
+        else if (enemyState == EnemyState.Casting)
+            anim.SetBool("isCasting", true);
         else if (enemyState == EnemyState.TakingDamage)
             anim.SetBool("isTakingDamage", true);
 
+    }
+
+    private IEnumerator ThunderAttackSequence()
+    {
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Casting") &&
+                                      anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
+
+        Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y);
+        Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
+
+        ChangeState(EnemyState.Chasing); 
+    }
+
+    public void OnCastingComplete()
+    {
+        if (enemyState == EnemyState.Casting)
+        {
+            Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y);
+            Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
+            ChangeState(EnemyState.Chasing);
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -146,13 +188,22 @@ public class EnemyMovement : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(detectionPoint.position, attackRange);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(thunderSpawnPoint.position, thunderAttackRange);
     }
+
+
 }
+
+
 
 public enum EnemyState
 {
     Idle,
     Chasing,
     Attacking,
+    Casting, 
+    ThunderAttack, 
     TakingDamage
 }
