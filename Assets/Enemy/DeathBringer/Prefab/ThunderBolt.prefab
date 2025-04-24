@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5870630384554484087}
   - component: {fileID: 5358011292306200122}
   m_Layer: 0
-  m_Name: ThynderBolt
+  m_Name: ThunderBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91edec2001ced5498e5d6e630618314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  lifetime: 0.8
-  strikeDelay: 0.1
+  damage: 10
+  lifetime: 1
+  strikeDelay: 0.3
   anim: {fileID: 2281207812984486305}
   hitCollider: {fileID: 5870630384554484087}
