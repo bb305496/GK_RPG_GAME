@@ -7,7 +7,7 @@ using System;
 public class ExpManager : MonoBehaviour
 {
     public int currentExp;
-    public int expToLevel = 10;
+    public int expToLevel = 30;
     public Slider expSlider;
     public TMP_Text levelText;
     public StatsManager statsManager;
@@ -45,7 +45,7 @@ public class ExpManager : MonoBehaviour
     {
         StatsManager.Instance.level++;
         currentExp -= expToLevel;
-        expToLevel = Mathf.RoundToInt(expToLevel * 1.2f);
+        expToLevel = Mathf.RoundToInt(expToLevel * 1.5f);
         OnLevelUp?.Invoke(1);
         statsManager.damage += 1;
         statsManager.maxHealth += 1;

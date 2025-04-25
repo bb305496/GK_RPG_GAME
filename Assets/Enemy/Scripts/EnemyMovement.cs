@@ -165,7 +165,7 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Casting") &&
                                       anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
 
-        Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y);
+        Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y + 0.3f);
         Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
 
         ChangeState(EnemyState.Chasing); 
