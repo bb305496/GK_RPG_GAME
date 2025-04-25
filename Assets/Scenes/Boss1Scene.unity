@@ -309,9 +309,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1958160465}
     - target: {fileID: 5790475852375260064, guid: 3d7b037aae9bd7b489bd4d1d2861c4bd, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790475852375260064, guid: 3d7b037aae9bd7b489bd4d1d2861c4bd, type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1958160467}
+    - target: {fileID: 5790475852375260064, guid: 3d7b037aae9bd7b489bd4d1d2861c4bd, type: 3}
+      propertyPath: currentHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7137380807344041397, guid: 3d7b037aae9bd7b489bd4d1d2861c4bd, type: 3}
       propertyPath: m_Name
       value: StatsManager
@@ -1175,10 +1183,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -18.807262, y: 14.708482}
-      - {x: -22.138584, y: -15.098357}
-      - {x: 27.351938, y: -16.530125}
-      - {x: 23.158422, y: 15.088273}
+    - - {x: -24.180492, y: 26.209084}
+      - {x: -24.023928, y: -23.770943}
+      - {x: 23.769781, y: -23.41163}
+      - {x: 25.703638, y: 26.117538}
   m_UseDelaunayMesh: 0
 --- !u!1 &475502879
 GameObject:
