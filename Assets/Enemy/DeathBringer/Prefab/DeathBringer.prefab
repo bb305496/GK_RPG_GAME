@@ -508,7 +508,7 @@ MonoBehaviour:
   speed: 2
   hasThunderAttack: 1
   thunderAttackRange: 11
-  thunderAttackCooldown: 5
+  thunderAttackCooldown: 3
   castingTime: 10
   thunderPrefab: {fileID: 2722365358182486800, guid: b73c43c06c9c45f49bb3fa1c2ee4212e, type: 3}
   thunderSpawnPoint: {fileID: 1407420717561391927}

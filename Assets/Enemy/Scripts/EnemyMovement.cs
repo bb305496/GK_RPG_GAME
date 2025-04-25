@@ -162,22 +162,24 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator ThunderAttackSequence()
     {
-        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Casting") &&
-                                      anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f);
+        Vector2 targetPosition = player.position;
 
-        Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y + 0.3f);
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Casting") &&
+                                      anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
+
+        Vector2 thunderPosition = new Vector2(targetPosition.x, targetPosition.y + 0.5f); 
         Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
 
-        ChangeState(EnemyState.Chasing); 
+        ChangeState(EnemyState.Chasing);
     }
 
     public void OnCastingComplete()
     {
         if (enemyState == EnemyState.Casting)
         {
-            Vector2 thunderPosition = new Vector2(player.position.x, thunderSpawnPoint.position.y);
+            
+            Vector2 thunderPosition = new Vector2(player.position.x, player.position.y + 0.5f);
             Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
-            ChangeState(EnemyState.Chasing);
         }
     }
 
