@@ -26,7 +26,6 @@ public class EnemyMovement : MonoBehaviour
     public float thunderAttackRange = 5f;
     public float thunderAttackCooldown = 5f;
     private float thunderAttackCooldownTimer;
-    public float castingTime = 1f; 
     public GameObject thunderPrefab; 
     public Transform thunderSpawnPoint; 
 
@@ -167,7 +166,7 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).IsName("Casting") &&
                                       anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
-        Vector2 thunderPosition = new Vector2(targetPosition.x, targetPosition.y + 0.5f); 
+        Vector2 thunderPosition = new Vector2(targetPosition.x, targetPosition.y + 1f); 
         Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
 
         ChangeState(EnemyState.Chasing);
@@ -178,7 +177,7 @@ public class EnemyMovement : MonoBehaviour
         if (enemyState == EnemyState.Casting)
         {
             
-            Vector2 thunderPosition = new Vector2(player.position.x, player.position.y + 0.5f);
+            Vector2 thunderPosition = new Vector2(player.position.x, player.position.y + 1f);
             Instantiate(thunderPrefab, thunderPosition, Quaternion.identity);
         }
     }
