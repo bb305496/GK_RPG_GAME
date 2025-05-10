@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   actorName: Ulrich von Jungingen
-  portrait: {fileID: -3914248031228685145, guid: 7d489174494d260458598b7b52f1ee41, type: 3}
+  portrait: {fileID: -5915006756576724544, guid: 731b553d37cfb144280656d9846a2e72, type: 3}

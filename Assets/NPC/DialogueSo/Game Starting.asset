@@ -15,7 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: {fileID: 11400000, guid: 3d5df10a9b79f324280aa1d0cbb84962, type: 2}
     text: 'Hi, [Player name]'
-  - speaker: {fileID: 11400000, guid: 3d5df10a9b79f324280aa1d0cbb84962, type: 2}
-    text: Welcome to The Knightmare
   - speaker: {fileID: 11400000, guid: c060ac4a7867059448a2a7b87a881385, type: 2}
     text: Hello?!
+  - speaker: {fileID: 11400000, guid: 3d5df10a9b79f324280aa1d0cbb84962, type: 2}
+    text: Welcome to The Knightmare

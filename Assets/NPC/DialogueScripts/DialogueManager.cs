@@ -4,18 +4,47 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance;
+
     [Header("UI References")]
+    public CanvasGroup canvasGroup;
     public Image portrait;
     public TMP_Text actorName;
     public TMP_Text dialogueText;
 
-    public DialogueSO currentDialogue;
+    public bool isDialogueActive;
+
+    private DialogueSO currentDialogue;
     private int dialogueIndex;
 
-    private void Start()
+    private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    public void StartDialogue(DialogueSO dialogueSO)
+    {
+        currentDialogue = dialogueSO;
+        dialogueIndex = 0;
+        isDialogueActive = true;
         ShowDialogue();
     }
+
+    public void AdvanceDialogue()
+    {
+        if (dialogueIndex < currentDialogue.lines.Length)
+            ShowDialogue();
+        else
+            EndDialogue();
+    }
+
     private void ShowDialogue()
     {
         DialogueLine line = currentDialogue.lines[dialogueIndex];
@@ -25,6 +54,20 @@ public class DialogueManager : MonoBehaviour
 
         dialogueText.text = line.text;
 
+        canvasGroup.alpha = 1;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
         dialogueIndex++;
+    }
+
+    private void EndDialogue()
+    {
+        dialogueIndex = 0;
+        isDialogueActive = false;
+
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 }
