@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: {fileID: 11400000, guid: 3d5df10a9b79f324280aa1d0cbb84962, type: 2}
-    text: 'Hi, [Player name]'
+    text: Hi, Player
   - speaker: {fileID: 11400000, guid: c060ac4a7867059448a2a7b87a881385, type: 2}
     text: Hello?!
   - speaker: {fileID: 11400000, guid: 3d5df10a9b79f324280aa1d0cbb84962, type: 2}
     text: Welcome to The Knightmare
+  options:
+  - optionText: Tell me more!
+    nextDialogue: {fileID: 11400000, guid: b7ff50c3702891442b1318b7c2c90924, type: 2}
+  - optionText: Not interested.
+    nextDialogue: {fileID: 11400000, guid: beee6ad70b236194abe3f2a3b2d4cb0a, type: 2}
