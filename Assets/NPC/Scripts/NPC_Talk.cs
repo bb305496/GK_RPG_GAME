@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC_Talk : MonoBehaviour
@@ -5,7 +6,9 @@ public class NPC_Talk : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public Animator interactAnim;
-    public DialogueSO dialogueSO;
+
+    public List<DialogueSO> conversations;
+    public DialogueSO currentConversation;
 
     private void Awake()
     {   
@@ -37,7 +40,21 @@ public class NPC_Talk : MonoBehaviour
             }
             else
             {
-                DialogueManager.Instance.StartDialogue(dialogueSO);
+                CheckForNewConversation();
+                DialogueManager.Instance.StartDialogue(currentConversation);
+            }
+        }
+    }
+
+    private void CheckForNewConversation()
+    {
+        for (int i = 0; i < conversations.Count; i++)
+        {
+            var convo = conversations[i];
+            if(convo != null && convo.IsConditionMet())
+            {
+                conversations.RemoveAt(i);
+                currentConversation = convo;
             }
         }
     }
