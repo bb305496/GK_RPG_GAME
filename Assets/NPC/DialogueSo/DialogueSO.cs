@@ -5,6 +5,26 @@ public class DialogueSO : ScriptableObject
 {
     public DialogueLine[] lines;
     public DialogueOption[] options;
+
+    [Header("Conditional Requirements (Options)")]
+    public ActorSO[] requiredNPCs;
+
+
+    public bool IsConditionMet()
+    {
+        if(requiredNPCs.Length > 0)
+        {
+            foreach(var npc in requiredNPCs)
+            {
+                if(!DialogueHistoryTracker.Instance.HasSpokneWith(npc))
+                    return false;
+            }
+        }
+
+
+        return true;
+    }
+
 }
 
 [System.Serializable]
