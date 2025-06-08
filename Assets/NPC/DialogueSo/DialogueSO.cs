@@ -8,6 +8,7 @@ public class DialogueSO : ScriptableObject
 
     [Header("Conditional Requirements (Options)")]
     public ActorSO[] requiredNPCs;
+    public ItemSO[] requiredItems;
 
 
     public bool IsConditionMet()
@@ -17,6 +18,15 @@ public class DialogueSO : ScriptableObject
             foreach(var npc in requiredNPCs)
             {
                 if(!DialogueHistoryTracker.Instance.HasSpokneWith(npc))
+                    return false;
+            }
+        }
+
+        if(requiredItems.Length > 0)
+        {
+            foreach (var item in requiredItems)
+            {
+                if(!InventoryManager.Instance.HasItem(item))
                     return false;
             }
         }
